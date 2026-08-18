@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" fill="none" role="img" aria-label="Satinus E.I.R.L. HEX WEB">
+  <g stroke="#0a0a0a" fill="#0a0a0a">
+    <path fill="none" stroke-width="0.7" stroke-linejoin="round"
+      d="M140 14c0 6.8 2.4 10.2 9.2 10.8-6.8.6-9.2 4-9.2 10.8 0-6.8-2.4-10.2-9.2-10.8 6.8-.6 9.2-4 9.2-10.8z"/>
+    <text x="140" y="78" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="40" letter-spacing="0.34em" fill="#0a0a0a" stroke="none">SATINUS</text>
+    <text x="140" y="104" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="500" letter-spacing="0.2em" fill="#0a0a0a" stroke="none">E.I.R.L.</text>
+    <line x1="68" y1="128" x2="212" y2="128" stroke-width="0.55" opacity="0.5"/>
+    <circle cx="140" cy="128" r="2" fill="#0a0a0a" stroke="none"/>
+    <text x="140" y="156" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0.3em" fill="#0a0a0a" stroke="none">HEX WEB</text>
+  </g>
+</svg>

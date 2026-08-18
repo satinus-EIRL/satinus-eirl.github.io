@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEX V8 Encoder / Decoder online — Satinus</title>
+  <meta name="description" content="Herramienta web HEX V8 para codificar texto en símbolos visuales hexagonales ternarios y decodificar imágenes PNG en el navegador, sin servidor." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://satinus.net/docs/materiales/hex-v8-web-tool.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HEX V8 Encoder / Decoder online" />
+  <meta property="og:description" content="Genera y decodifica símbolos HEX V8 en el navegador. Tecnología de codificación visual hexagonal ternaria de Satinus." />
+  <meta property="og:url" content="https://satinus.net/docs/materiales/hex-v8-web-tool.html" />
+  <meta name="twitter:title" content="HEX V8 Encoder / Decoder online" />
+  <meta name="twitter:description" content="Genera y decodifica símbolos HEX V8 en el navegador. Tecnología de codificación visual hexagonal ternaria de Satinus." />
+  <meta property="og:site_name" content="Satinus E.I.R.L." />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Satinus E.I.R.L." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta name="twitter:image:alt" content="Satinus E.I.R.L." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://satinus.net/docs/materiales/hex-v8-web-tool.html#app",
+    "name": "HEX V8 Encoder / Decoder",
+    "alternateName": "HEX Tool",
+    "url": "https://satinus.net/docs/materiales/hex-v8-web-tool.html",
+    "image": "https://satinus.net/assets/branding/og-share.png",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web browser",
+    "isAccessibleForFree": true,
+    "description": "Herramienta web para codificar texto UTF-8 en símbolos visuales hexagonales ternarios HEX V8 y decodificar imágenes PNG localmente en el navegador.",
+    "creator": {
+      "@type": "Organization",
+      "@id": "https://satinus.net/#organization",
+      "name": "Satinus E.I.R.L."
+    },
+    "isPartOf": {
+      "@id": "https://satinus.net/hex.html#hex-v8"
+    }
+  }
+  </script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/branding/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/assets/branding/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css?v=20260728social" />
+  <link rel="stylesheet" href="/css/hex-tool.css" />
+  <link rel="stylesheet" href="/css/terms-gate.css?v=20260716m5" />
+</head>
+<body>
+
+<div class="site-social" role="navigation" aria-label="Satinus en redes sociales">
+  <ul class="site-social-list">
+    <li><a href="https://www.linkedin.com/company/satinus/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.threads.com/@satinuseirl" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+    <li><a href="https://x.com/SatinusTech" target="_blank" rel="noopener noreferrer me" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="https://github.com/satinus-EIRL" target="_blank" rel="noopener noreferrer me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.youtube.com/@SatinusEIRL" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.instagram.com/satinuseirl/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<header class="site-nav">
+  <a href="/index.html" class="brand" data-i18n-aria="nav.home" aria-label="Satinus inicio">
+    <img src="/assets/branding/logo-mark.png" class="brand-mark" alt="Satinus" width="32" height="32" />
+    <span class="brand-text">
+      <span class="brand-name">Satinus</span>
+      <span class="brand-sub">E.I.R.L.</span>
+    </span>
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" data-i18n-aria="nav.menu" aria-label="Menu">
+    <span class="nav-toggle-bars" aria-hidden="true"></span>
+    <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+  </button>
+  <ul class="nav-links" id="site-nav-menu">
+    <li><a href="/index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="/sobre-nosotros.html" data-i18n="nav.about">Sobre nosotros</a></li>
+    <li><a href="/productos.html" data-i18n="nav.products">Productos</a></li>
+    <li><a href="/boletin.html" data-i18n="nav.boletin">Boletín</a></li>
+    <li><a href="/documentacion.html" aria-current="page" data-i18n="nav.docs">Documentación</a></li>
+    <li><a href="/index.html#contacto" class="btn-nav" data-i18n="nav.contact">Contacto</a></li>
+    <li class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <section class="hex-tool-intro">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow" data-i18n="tool.eyebrow">Herramienta · HEX V8</p>
+      <h1>HEX: Encoder / Decoder</h1>
+      <p class="lead" data-i18n="tool.lead">
+        Codifica texto UTF-8 en un símbolo hexagonal ternario (trits negro / gris / blanco)
+        y verifica la lectura desde una imagen PNG — todo en el navegador, sin servidor.
+      </p>
+      <ul class="hex-tool-points">
+        <li><strong data-i18n="tool.encode">Encode:</strong> <span data-i18n="tool.encode.desc">payload + nivel N → PNG con anillo visual, quiet zone y datos RS-M.</span></li>
+        <li><strong data-i18n="tool.decode">Decode:</strong> <span data-i18n="tool.decode.desc">sube el PNG y recupera el texto; opcionalmente indica N.</span></li>
+        <li><strong data-i18n="tool.scope">Alcance:</strong> <span data-i18n="tool.scope.desc">demostración y laboratorio — no sustituye el lector Android de campo (§8.4 del preprint).</span></li>
+      </ul>
+
+      <aside class="hex-app-banner" aria-label="HEX Scanner">
+        <div class="hex-app-banner__text">
+          <p class="hex-app-banner__eyebrow" data-i18n="tool.app.eyebrow">Lector de campo</p>
+          <strong data-i18n="tool.app.title">HEX Scanner para Android</strong>
+          <p data-i18n="tool.app.body">La herramienta web es didáctica. Para escanear símbolos impresos con la cámara, descarga la app de evaluación.</p>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/Satinus/hex-scanner/releases/latest" rel="noopener noreferrer" target="_blank" data-i18n="tool.app.cta">Descargar app</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="hex-tool-grid">
+
+        <article class="hex-panel hex-panel--encode">
+          <h2 data-i18n="tool.panel.encode.title">Encode</h2>
+          <p class="hex-panel-desc" data-i18n="tool.panel.encode.desc">Elige el nivel N, escribe el payload y genera el PNG. La vista previa muestra el símbolo a escala de pantalla.</p>
+
+          <label class="hex-field">
+            <span data-i18n="tool.field.n">Nivel N</span>
+            <select id="hex-n" class="hex-input"></select>
+          </label>
+
+          <label class="hex-field">
+            <span data-i18n="tool.field.payload">Payload (texto UTF-8)</span>
+            <textarea id="hex-payload" class="hex-input hex-textarea" rows="4" placeholder="Hola HEX">Hola HEX</textarea>
+          </label>
+          <p class="hex-hint" id="hex-cap-hint"></p>
+
+          <div class="hex-actions">
+            <button type="button" id="hex-encode-btn" class="btn btn-primary" data-i18n="tool.btn.generate">Generar símbolo</button>
+            <button type="button" id="hex-roundtrip-btn" class="btn btn-ghost" data-i18n="tool.btn.roundtrip">Verificar roundtrip</button>
+          </div>
+          <p id="hex-encode-status" class="hex-status" aria-live="polite"></p>
+
+          <div id="hex-preview" class="hex-preview" aria-label="Vista previa del símbolo">
+            <p class="hex-preview-empty" data-i18n="tool.preview.empty">El símbolo aparecerá aquí</p>
+          </div>
+          <div class="hex-preview-actions">
+            <a id="hex-download" class="btn btn-ghost hex-hidden" download data-i18n="tool.btn.download">Descargar PNG</a>
+          </div>
+        </article>
+
+        <article class="hex-panel">
+          <h2 data-i18n="tool.panel.decode.title">Decode</h2>
+          <p class="hex-panel-desc" data-i18n="tool.panel.decode.desc">Sube un PNG del símbolo — generado aquí o exportado — para recuperar el payload.</p>
+
+          <label class="hex-field">
+            <span data-i18n="tool.field.nHint">Pista de N (opcional)</span>
+            <select id="hex-n-hint" class="hex-input"></select>
+          </label>
+
+          <label class="hex-field">
+            <span data-i18n="tool.field.image">Imagen</span>
+            <input type="file" id="hex-file" class="hex-input" accept="image/png,image/jpeg,image/webp" />
+          </label>
+
+          <div class="hex-actions">
+            <button type="button" id="hex-decode-btn" class="btn btn-primary" data-i18n="tool.btn.decode">Decodificar</button>
+          </div>
+          <p id="hex-decode-status" class="hex-status" aria-live="polite"></p>
+
+          <label class="hex-field">
+            <span data-i18n="tool.field.result">Payload recuperado</span>
+            <pre id="hex-result" class="hex-result"></pre>
+          </label>
+        </article>
+
+      </div>
+
+      <aside class="notice hex-notice">
+        <p>
+          <span data-i18n="tool.notice">Encode y decode se ejecutan en el navegador (niveles N8–N15). Para el protocolo de campo completo, consulta el</span>
+          <a href="/docs/informes/hex-v8-informe-tecnico.html" data-i18n="tool.notice.link">informe técnico</a>.
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer.copy">Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</span>
+  <div class="footer-links">
+    <a href="/sobre-nosotros.html" data-i18n="footer.about">Sobre nosotros</a>
+    <a href="/actividad.html" data-i18n="footer.activity">Actividad</a>
+    <a href="/productos.html" data-i18n="footer.products">Productos</a>
+    <a href="/boletin.html" data-i18n="footer.boletin">Boletín</a>
+    <a href="/documentacion.html" data-i18n="footer.docs">Documentación</a>
+    <a href="/privacidad.html" data-i18n="footer.privacy">Privacidad</a>
+    <a href="/aviso-legal.html" data-i18n="footer.legal">Aviso legal</a>
+    <a href="/terminos.html" data-i18n="footer.terms">Términos de uso</a>
+    <a href="mailto:satinuseirl@gmail.com" data-i18n="footer.contact">Contacto</a>
+  </div>
+</footer>
+
+<script src="/js/site-config.js?v=20260711d"></script>
+<script src="/js/terms-content.js?v=20260711d"></script>
+<script src="/js/i18n.js?v=20260723a"></script>
+<script src="/js/terms-gate.js?v=20260711d"></script>
+<script src="/js/hex-tool.js?v=20260711d"></script>
+<script src="/js/nav.js?v=20260728social"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# Satinus E.I.R.L.
+
+> Laboratorio de I+D de alta complejidad desde Latinoamérica. Tecnología propia, evaluación pública selectiva y licenciamiento B2B. No es una agencia ni una consultora de volumen. Sede pública: Linares, Maule, Chile.
+
+Satinus evoca lo satinado: el resultado ya brillante, como la seda después del calandrado.
+
+Sitio canónico: https://satinus.net/
+Contacto: satinuseirl@gmail.com
+RUT: 78.165.009-9
+
+## Qué es Satinus
+
+Satinus desarrolla I+D de alta complejidad desde Latinoamérica. Líneas actuales:
+
+- HEX V8 — simbología visual 2D ternaria hexagonal (evaluación pública avanzada; no se afirma estándar mundial ni reemplazo universal de QR).
+- Protocolo Toroidal — orquestación/réplica B2B (ciclo de exposición distinto).
+- Inteligencia artificial — capacidad institucional en desarrollo, no un producto flagship cerrado.
+
+Fundador: Jorge Luis Figueroa Cifuentes.
+
+## Páginas
+
+- [Inicio](https://satinus.net/): identidad de la empresa
+- [Sobre nosotros](https://satinus.net/sobre-nosotros.html)
+- [Productos](https://satinus.net/productos.html)
+- [HEX V8](https://satinus.net/hex.html)
+- [Protocolo Toroidal](https://satinus.net/protocolo.html)
+- [Documentación](https://satinus.net/documentacion.html)
+- [Boletín](https://satinus.net/boletin.html)
+- [Actividad](https://satinus.net/actividad.html)
+
+## HEX V8 — materiales públicos
+
+- [Informe técnico](https://satinus.net/docs/informes/hex-v8-informe-tecnico.html)
+- [Preprint ES](https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html)
+- [Preprint EN](https://satinus.net/docs/preprints/hex-v8-manuscript-en.html)
+- [Preprint PT-BR](https://satinus.net/docs/preprints/hex-v8-manuscrito-pt.html)
+- [Herramienta web encode/decode](https://satinus.net/docs/materiales/hex-v8-web-tool.html)
+
+El DOI de depósito (Zenodo) aún no está publicado. Cuando exista, es la cita canónica del preprint.
+
+## Discurso que no debe usarse
+
+- No afirmar patente HEX (hay depósito de software DDI/Crin en Chile; no es patente).
+- No afirmar publicación en arXiv sin ID.
+- No presentar HEX como producto de misión crítica ni estándar mundial.

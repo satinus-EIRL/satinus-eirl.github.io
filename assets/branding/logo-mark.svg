@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Solid mark for dark UI: black disc + white ring + white star -->
+  <circle cx="24" cy="24" r="22" fill="#000000"/>
+  <circle cx="24" cy="24" r="22" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+  <path fill="#FFFFFF" d="M24 7.5
+    C24 16.5 16.5 24 7.5 24
+    C16.5 24 24 31.5 24 40.5
+    C24 31.5 31.5 24 40.5 24
+    C31.5 24 24 16.5 24 7.5 Z"/>
+</svg>

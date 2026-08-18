@@ -1,0 +1,103 @@
+{
+  "spec": "HEX V8 max-capacity beta sheet",
+  "rs_level": "M",
+  "dpi": 300,
+  "slots": [
+    {
+      "n": 8,
+      "code_mm": 58.0,
+      "geom_cap": 13,
+      "data_bytes": 11,
+      "util_pct": 82.67716535433071,
+      "tri_mm": 6.2,
+      "payload_preview": "SATINUS-HEX",
+      "payload_ascii": "SATINUS-HEX",
+      "png": "hex_n08_max_11B.png",
+      "scan_hint": "App: Auto"
+    },
+    {
+      "n": 9,
+      "code_mm": 58.0,
+      "geom_cap": 24,
+      "data_bytes": 22,
+      "util_pct": 84.65608465608466,
+      "tri_mm": 5.5,
+      "payload_preview": "HEX-N09-MAX=XXXXXX-22B",
+      "payload_ascii": "HEX-N09-MAX=XXXXXX-22B",
+      "png": "hex_n09_max_22B.png",
+      "scan_hint": "App: Auto"
+    },
+    {
+      "n": 10,
+      "code_mm": 58.0,
+      "geom_cap": 37,
+      "data_bytes": 35,
+      "util_pct": 85.55133079847909,
+      "tri_mm": 5.0,
+      "payload_preview": "HEX-V8-N10-RS-M-SATINUS-MAX=XXX-35B",
+      "payload_ascii": "HEX-V8-N10-RS-M-SATINUS-MAX=XXX-35B",
+      "png": "hex_n10_max_35B.png",
+      "scan_hint": "App: Auto"
+    },
+    {
+      "n": 11,
+      "code_mm": 64.0,
+      "geom_cap": 53,
+      "data_bytes": 51,
+      "util_pct": 87.39255014326648,
+      "tri_mm": 5.0,
+      "payload_preview": "HEX-V8-N11-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXX...",
+      "payload_ascii": "HEX-V8-N11-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXXXX-51B",
+      "png": "hex_n11_max_51B.png",
+      "scan_hint": "App: Auto (N cercano) o N12"
+    },
+    {
+      "n": 12,
+      "code_mm": 70.0,
+      "geom_cap": 71,
+      "data_bytes": 69,
+      "util_pct": 88.36689038031321,
+      "tri_mm": 5.0,
+      "payload_preview": "HEX-V8-N12-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXX...",
+      "payload_ascii": "HEX-V8-N12-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-69B",
+      "png": "hex_n12_max_69B.png",
+      "scan_hint": "App: N12 + Capturar"
+    },
+    {
+      "n": 13,
+      "code_mm": 76.0,
+      "geom_cap": 91,
+      "data_bytes": 89,
+      "util_pct": 88.8689407540395,
+      "tri_mm": 5.0,
+      "payload_preview": "HEX-V8-N13-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXX...",
+      "payload_ascii": "HEX-V8-N13-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-89B",
+      "png": "hex_n13_max_89B.png",
+      "scan_hint": "App: Auto (N cercano) o N15"
+    },
+    {
+      "n": 14,
+      "code_mm": 81.0,
+      "geom_cap": 114,
+      "data_bytes": 112,
+      "util_pct": 89.83799705449191,
+      "tri_mm": 5.0,
+      "payload_preview": "HEX-V8-N14-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXX...",
+      "payload_ascii": "HEX-V8-N14-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-112B",
+      "png": "hex_n14_max_112B.png",
+      "scan_hint": "App: Auto (N cercano) o N15"
+    },
+    {
+      "n": 15,
+      "code_mm": 85.0,
+      "geom_cap": 139,
+      "data_bytes": 137,
+      "util_pct": 90.40590405904058,
+      "tri_mm": 4.9,
+      "payload_preview": "HEX-V8-N15-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXX...",
+      "payload_ascii": "HEX-V8-N15-RS-M-SATINUS-MAX=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-137B",
+      "png": "hex_n15_max_137B.png",
+      "scan_hint": "App: N15 + Capturar"
+    }
+  ]
+}

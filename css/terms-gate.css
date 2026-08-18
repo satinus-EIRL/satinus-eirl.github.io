@@ -1,0 +1,174 @@
+/* Satinus — modal de aceptación de términos (primer visita) */
+
+.terms-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(8, 10, 22, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.terms-gate-overlay[hidden] {
+  display: none !important;
+}
+
+.terms-gate-dialog {
+  width: min(560px, 100%);
+  max-height: min(90vh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface, #141428);
+  border: 1px solid var(--border, #2a2a5e);
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.terms-gate-header {
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 1px solid var(--border, #2a2a5e);
+}
+
+.terms-gate-header h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text, #e0e0ff);
+}
+
+.terms-gate-header p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted, #8888cc);
+}
+
+.terms-gate-meta {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-dim, #5a5a8e);
+}
+
+.terms-gate-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-soft, #c8c8e8);
+}
+
+.terms-gate-section {
+  margin-bottom: 1rem;
+}
+
+.terms-gate-section h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent, #9cf);
+}
+
+.terms-gate-section p {
+  margin: 0;
+}
+
+.terms-gate-full-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--link, #6fcf6f);
+  text-decoration: none;
+}
+
+.terms-gate-full-link:hover {
+  text-decoration: underline;
+}
+
+.terms-gate-footer {
+  padding: 1rem 1.5rem 1.25rem;
+  border-top: 1px solid var(--border, #2a2a5e);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.terms-gate-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--text, #e0e0ff);
+}
+
+.terms-gate-check input {
+  margin-top: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--link, #6fcf6f);
+  flex-shrink: 0;
+}
+
+.terms-gate-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.terms-gate-actions .btn {
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.terms-gate-decline-msg {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--error, #f88);
+  line-height: 1.45;
+}
+
+.terms-gate-decline-msg[hidden] {
+  display: none;
+}
+
+/* Página completa terminos.html */
+.terms-page-meta {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted, #8888cc);
+}
+
+.terms-page-section {
+  margin-bottom: 1.5rem;
+}
+
+.terms-page-section h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent, #9cf);
+}
+
+.terms-page-section p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text-soft, #c8c8e8);
+}
+
+.terms-page-accept-bar {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border, #2a2a5e);
+  background: rgba(20, 40, 80, 0.35);
+}
+
+.terms-page-accept-bar[hidden] {
+  display: none;
+}

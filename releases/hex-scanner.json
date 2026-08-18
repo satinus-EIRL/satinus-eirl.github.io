@@ -1,0 +1,16 @@
+{
+  "package": "com.hexscanner.app",
+  "version": "0.4.8",
+  "versionCode": 408,
+  "releasedAt": "2026-07-10",
+  "distribution": "github-releases",
+  "apkUrl": "https://github.com/Satinus/hex-scanner/releases/download/v0.4.8/hex-scanner-0.4.8.apk",
+  "releasePageUrl": "https://github.com/Satinus/hex-scanner/releases/tag/v0.4.8",
+  "releaseNotes": {
+    "es": "Canal de actualizacion apunta a GitHub Pages. Misma app de evaluacion; descarga via GitHub Releases.",
+    "en": "Update channel now uses GitHub Pages. Same evaluation app; download via GitHub Releases.",
+    "pt": "Canal de atualizacao aponta para GitHub Pages. Mesmo app de avaliacao; download via GitHub Releases."
+  },
+  "minSupportedVersion": "0.4.0",
+  "mandatory": false
+}

@@ -1,0 +1,80 @@
+{
+  "updated": "2026-07-16",
+  "posts": [
+    {
+      "id": "bienvenida-satinus",
+      "date": "2026-07-16",
+      "tag": "Empresa",
+      "tagEn": "Company",
+      "tagPt": "Empresa",
+      "title": "Satinus: I+D de alta complejidad desde Latinoamérica",
+      "titleEn": "Satinus: high-complexity R&D from Latin America",
+      "titlePt": "Satinus: P&D de alta complexidade desde a América Latina",
+      "excerpt": "Quiénes somos, qué desarrollamos y cómo publicamos materiales de evaluación bajo un modelo de licenciamiento B2B.",
+      "excerptEn": "Who we are, what we build, and how we publish evaluation materials under a B2B licensing model.",
+      "excerptPt": "Quem somos, o que desenvolvemos e como publicamos materiais de avaliação sob um modelo de licenciamento B2B.",
+      "file": "boletin/entradas/bienvenida-satinus.html",
+      "featured": true
+    },
+    {
+      "id": "hex-v8-evaluacion",
+      "date": "2026-07-15",
+      "tag": "HEX V8",
+      "tagEn": "HEX V8",
+      "tagPt": "HEX V8",
+      "title": "HEX V8 en evaluación pública",
+      "titleEn": "HEX V8 in public evaluation",
+      "titlePt": "HEX V8 em avaliação pública",
+      "excerpt": "Formato de codificación visual con especificación, preprint, herramienta web y lector Android. Uso productivo requiere licencia.",
+      "excerptEn": "Visual encoding format with specification, preprint, web tool, and Android reader. Productive use requires a license.",
+      "excerptPt": "Formato de codificação visual com especificação, preprint, ferramenta web e leitor Android. Uso produtivo requer licença.",
+      "file": "boletin/entradas/hex-v8-evaluacion.html",
+      "featured": true
+    },
+    {
+      "id": "protocolo-toroidal",
+      "date": "2026-07-14",
+      "tag": "Protocolo",
+      "tagEn": "Protocol",
+      "tagPt": "Protocolo",
+      "title": "Protocolo Toroidal: prototipo preliminar",
+      "titleEn": "Toroidal Protocol: preliminary prototype",
+      "titlePt": "Protocolo Toroidal: protótipo preliminar",
+      "excerpt": "Middleware de coordinación para clusters edge/IoT. Estado técnico, alcance y vía de licenciamiento B2B.",
+      "excerptEn": "Coordination middleware for edge/IoT clusters. Technical status, scope, and B2B licensing path.",
+      "excerptPt": "Middleware de coordenação para clusters edge/IoT. Estado técnico, escopo e via de licenciamento B2B.",
+      "file": "boletin/entradas/protocolo-toroidal.html",
+      "featured": true
+    },
+    {
+      "id": "documentacion-publica",
+      "date": "2026-07-12",
+      "tag": "Documentación",
+      "tagEn": "Documentation",
+      "tagPt": "Documentação",
+      "title": "Centro de documentación técnica",
+      "titleEn": "Technical documentation hub",
+      "titlePt": "Centro de documentação técnica",
+      "excerpt": "Informe, preprint, hojas de referencia y herramienta encoder/decoder disponibles para evaluación.",
+      "excerptEn": "Report, preprint, reference sheets, and encoder/decoder tool available for evaluation.",
+      "excerptPt": "Relatório, preprint, folhas de referência e ferramenta encoder/decoder disponíveis para avaliação.",
+      "file": "boletin/entradas/documentacion-publica.html",
+      "featured": true
+    },
+    {
+      "id": "hex-scanner-android",
+      "date": "2026-07-09",
+      "tag": "HEX V8",
+      "tagEn": "HEX V8",
+      "tagPt": "HEX V8",
+      "title": "HEX Scanner Android en Releases",
+      "titleEn": "HEX Scanner Android on Releases",
+      "titlePt": "HEX Scanner Android no Releases",
+      "excerpt": "App lectora de evaluación (baseline 0.4.7): descarga e historial de versiones en GitHub Releases.",
+      "excerptEn": "Evaluation reader app (baseline 0.4.7): download and version history on GitHub Releases.",
+      "excerptPt": "App leitora de avaliação (baseline 0.4.7): download e histórico no GitHub Releases.",
+      "file": "boletin/entradas/hex-scanner-android.html",
+      "featured": true
+    }
+  ]
+}

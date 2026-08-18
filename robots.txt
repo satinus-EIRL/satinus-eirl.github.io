@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Gemini / Google AI Overviews indexan el sitio vía Search; no bloquear Google-Extended.
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://satinus.net/sitemap.xml

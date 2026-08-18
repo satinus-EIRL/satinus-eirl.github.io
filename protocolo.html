@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocolo Toroidal — Satinus E.I.R.L.</title>
+  <meta name="description" content="Protocolo Toroidal Distribuido: coordinación y réplica por topología geométrica. Prototipo licenciable B2B — Satinus E.I.R.L." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://satinus.net/protocolo.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Protocolo Toroidal — Satinus E.I.R.L." />
+  <meta property="og:description" content="Orquestador de réplica por topología: Ring, shards, ledger consortium y API. Licenciamiento B2B." />
+  <meta property="og:url" content="https://satinus.net/protocolo.html" />
+  <meta name="twitter:title" content="Protocolo Toroidal — Satinus E.I.R.L." />
+  <meta name="twitter:description" content="Orquestador de réplica por topología: Ring, shards, ledger consortium y API. Licenciamiento B2B." />
+  <meta property="og:site_name" content="Satinus E.I.R.L." />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Satinus E.I.R.L." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta name="twitter:image:alt" content="Satinus E.I.R.L." />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/branding/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css?v=20260728social" />
+  <link rel="stylesheet" href="css/terms-gate.css" />
+</head>
+<body>
+
+<div class="site-social" role="navigation" aria-label="Satinus en redes sociales">
+  <ul class="site-social-list">
+    <li><a href="https://www.linkedin.com/company/satinus/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.threads.com/@satinuseirl" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+    <li><a href="https://x.com/SatinusTech" target="_blank" rel="noopener noreferrer me" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="https://github.com/satinus-EIRL" target="_blank" rel="noopener noreferrer me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.youtube.com/@SatinusEIRL" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.instagram.com/satinuseirl/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<header class="site-nav">
+  <a href="/index.html" class="brand" data-i18n-aria="nav.home" aria-label="Satinus inicio">
+    <img src="/assets/branding/logo-mark.png" class="brand-mark" alt="Satinus" width="32" height="32" />
+    <span class="brand-text">
+      <span class="brand-name">Satinus</span>
+      <span class="brand-sub">E.I.R.L.</span>
+    </span>
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" data-i18n-aria="nav.menu" aria-label="Menu">
+    <span class="nav-toggle-bars" aria-hidden="true"></span>
+    <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+  </button>
+  <ul class="nav-links" id="site-nav-menu">
+    <li><a href="/index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="/sobre-nosotros.html" data-i18n="nav.about">Sobre nosotros</a></li>
+    <li><a href="/productos.html" data-i18n="nav.products">Productos</a></li>
+    <li><a href="/boletin.html" data-i18n="nav.boletin">Boletín</a></li>
+    <li><a href="/documentacion.html" data-i18n="nav.docs">Documentación</a></li>
+    <li><a href="/index.html#contacto" class="btn-nav" data-i18n="nav.contact">Contacto</a></li>
+    <li class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <section class="product-hero">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow" data-i18n="proto.eyebrow">Línea de producto · preliminar</p>
+      <h1 data-i18n="proto.title">Protocolo Toroidal Distribuido</h1>
+      <p class="lead" data-i18n="proto.lead">
+        Coordinación y réplica por forma: eliges la geometría del cluster; el protocolo ordena,
+        coloca y audita. Middleware para clusters pequeños/medios — no sustituye TCP/IP ni un CDN.
+      </p>
+      <div class="product-meta" aria-label="Estado">
+        <span class="product-chip" data-i18n="proto.chip.v">v1.0</span>
+        <span class="product-chip" data-i18n="proto.chip.trl">TRL ~4 · prototipo operable</span>
+        <span class="product-chip" data-i18n="proto.chip.lic">Licencia propietaria · B2B</span>
+      </div>
+      <div class="hero-actions" style="margin-top:1.5rem">
+        <a href="index.html#contacto" class="btn btn-primary" data-i18n="proto.cta.contact">Consultar licenciamiento</a>
+        <a href="documentacion.html" class="btn btn-ghost" data-i18n="proto.cta.docs">Centro de documentación</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="proto.promise.eyebrow">Promesa</p>
+        <h2 data-i18n="proto.promise.title">Qué resuelve</h2>
+        <p data-i18n="proto.promise.body">
+          En lugar de cajas negras de consenso o topologías accidentales, el Protocolo Toroidal
+          declara invariantes medibles: mensajes por ronda, tolerancia a fallos y localidad de datos —
+          con geometría (poliedros, toros, genus) como unidad de diseño.
+        </p>
+      </div>
+      <div class="product-grid">
+        <div class="product-panel">
+          <h3 data-i18n="proto.is.title">Qué incluye (prototipo)</h3>
+          <ul>
+            <li data-i18n="proto.is.1">Selector de geometría (Tetra, Szilassi, toro, platónicos/arquimedianos)</li>
+            <li data-i18n="proto.is.2">Control plane Ring / Flood / Unicast con auditoría exacta</li>
+            <li data-i18n="proto.is.3">Shards put/get con colocación determinista + SQLite por nodo</li>
+            <li data-i18n="proto.is.4">Ledger consortium append-only (N ≤ 7)</li>
+            <li data-i18n="proto.is.5">Catálogo media (metadatos Ring; bytes fuera del Ring)</li>
+            <li data-i18n="proto.is.6">SDK Python + CLI + API HTTP(S)</li>
+          </ul>
+        </div>
+        <div class="product-panel">
+          <h3 data-i18n="proto.not.title">Qué no es</h3>
+          <ul>
+            <li data-i18n="proto.not.1">Reemplazo de TCP/IP — vive sobre transporte</li>
+            <li data-i18n="proto.not.2">Kafka / bus masivo de eventos</li>
+            <li data-i18n="proto.not.3">Blockchain L1 pública</li>
+            <li data-i18n="proto.not.4">CDN o streaming de video</li>
+            <li data-i18n="proto.not.5">PaaS multi-tenant llave en mano (hoy: self-host + licencia)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="proto.use.eyebrow">Encaje</p>
+        <h2 data-i18n="proto.use.title">Casos de uso prioritarios</h2>
+      </div>
+      <table class="product-table">
+        <tbody>
+          <tr>
+            <th data-i18n="proto.use.a.k">Edge N = 4–7</th>
+            <td data-i18n="proto.use.a.v">Réplica ordenada (Tetra / Szilassi) + ledger opcional</td>
+          </tr>
+          <tr>
+            <th data-i18n="proto.use.b.k">Geo / series</th>
+            <td data-i18n="proto.use.b.v">Shards en toro: dato cerca de su vecindario topológico</td>
+          </tr>
+          <tr>
+            <th data-i18n="proto.use.c.k">Consortium</th>
+            <td data-i18n="proto.use.c.v">Bitácora compartida de pocos nodos de confianza (N ≤ 7)</td>
+          </tr>
+          <tr>
+            <th data-i18n="proto.use.d.k">Índice media</th>
+            <td data-i18n="proto.use.d.v">Catálogo «quién tiene qué chunk» — no el streamer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="proto.lic.eyebrow">Comercial</p>
+        <h2 data-i18n="proto.lic.title">Licenciamiento</h2>
+        <p data-i18n="proto.lic.body">
+          Igual que HEX V8, el Protocolo Toroidal se ofrece bajo <strong>acuerdo escrito</strong>
+          (ley chilena): licencia de software / PI, integración y soporte acotado.
+          Esta página es preliminar — no sustituye contrato ni entrega de código.
+        </p>
+      </div>
+      <ul class="plain-list">
+        <li data-i18n="proto.lic.1">Toroidal Core — SDK + CLI + geometrías + Ring/Flood</li>
+        <li data-i18n="proto.lic.2">Toroidal Data — Core + shards + API fragment</li>
+        <li data-i18n="proto.lic.3">Toroidal Trust — Data + ledger N≤7</li>
+        <li data-i18n="proto.lic.4">Toroidal Media Index — Data + catálogo media</li>
+      </ul>
+      <p class="activity-note" data-i18n="proto.lic.note">
+        Estado técnico julio 2026: prototipo local operable (suite de tests verde), publicación PyPI/GitHub pendiente.
+        Consultas: satinuseirl@gmail.com o el formulario de contacto.
+      </p>
+      <div class="hero-actions" style="margin-top:1.25rem">
+        <a href="index.html#contacto" class="btn btn-primary" data-i18n="proto.cta.contact2">Solicitar acceso / piloto</a>
+        <a href="mailto:satinuseirl@gmail.com?subject=Licenciamiento%20Protocolo%20Toroidal" class="btn btn-ghost">satinuseirl@gmail.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer.copy">Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</span>
+  <div class="footer-links">
+    <a href="/sobre-nosotros.html" data-i18n="footer.about">Sobre nosotros</a>
+    <a href="/actividad.html" data-i18n="footer.activity">Actividad</a>
+    <a href="/productos.html" data-i18n="footer.products">Productos</a>
+    <a href="/boletin.html" data-i18n="footer.boletin">Boletín</a>
+    <a href="/documentacion.html" data-i18n="footer.docs">Documentación</a>
+    <a href="/privacidad.html" data-i18n="footer.privacy">Privacidad</a>
+    <a href="/aviso-legal.html" data-i18n="footer.legal">Aviso legal</a>
+    <a href="/terminos.html" data-i18n="footer.terms">Términos de uso</a>
+    <a href="mailto:satinuseirl@gmail.com" data-i18n="footer.contact">Contacto</a>
+  </div>
+</footer>
+
+<script src="js/site-config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="/js/nav.js?v=20260728social"></script>
+<script src="js/terms-gate.js"></script>
+</body>
+</html>

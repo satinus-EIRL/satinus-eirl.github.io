@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "system": "HEX",
+    "version": "HEX-V8",
+    "n": 8,
+    "radius": 400.45751598346686
+  },
+  "stats": {
+    "n_divisions": 8,
+    "capacity_bytes": 13,
+    "data_len": 7,
+    "trits_data": 75,
+    "trits_parity": 10,
+    "trits_padding": 11
+  }
+}

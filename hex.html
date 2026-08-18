@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEX V8 — Código visual hexagonal ternario | Satinus</title>
+  <meta name="description" content="HEX V8 (Hexagonal Encoding eXtended) es una simbología visual 2D ternaria hexagonal de Satinus: encoder, decoder, lector Android, preprint y evaluación de campo." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://satinus.net/hex.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="HEX V8 — Código visual hexagonal ternario" />
+  <meta property="og:description" content="Tecnología de codificación visual de Satinus con códec encode/decode, herramienta web, lector Android y evaluación pública avanzada." />
+  <meta property="og:url" content="https://satinus.net/hex.html" />
+  <meta property="og:site_name" content="Satinus E.I.R.L." />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Satinus E.I.R.L." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta name="twitter:image:alt" content="Satinus E.I.R.L." />
+
+  <meta name="twitter:title" content="HEX V8 — Código visual hexagonal ternario" />
+  <meta name="twitter:description" content="Encoder, decoder, lector Android, preprint y materiales de evaluación pública de HEX V8." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://satinus.net/hex.html#article",
+        "url": "https://satinus.net/hex.html",
+        "image": "https://satinus.net/assets/branding/og-share.png",
+        "headline": "HEX V8 — código visual hexagonal ternario",
+        "description": "HEX V8 (Hexagonal Encoding eXtended) es una simbología visual 2D ternaria hexagonal con códec encode/decode, lector Android y evaluación pública avanzada.",
+        "inLanguage": "es",
+        "dateModified": "2026-08-05",
+        "author": {
+          "@type": "Organization",
+          "@id": "https://satinus.net/#organization",
+          "name": "Satinus E.I.R.L."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://satinus.net/#organization"
+        },
+        "about": {
+          "@type": "DefinedTerm",
+          "@id": "https://satinus.net/hex.html#hex-v8",
+          "name": "HEX V8",
+          "alternateName": [
+            "HEX",
+            "Hexagonal Encoding eXtended",
+            "código HEX",
+            "simbología visual hexagonal ternaria"
+          ],
+          "description": "Tecnología de codificación visual 2D ternaria hexagonal desarrollada por Satinus E.I.R.L."
+        },
+        "keywords": [
+          "HEX V8",
+          "Hexagonal Encoding eXtended",
+          "código visual hexagonal",
+          "simbología 2D ternaria",
+          "encoder decoder",
+          "visión por computadora",
+          "Satinus"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://satinus.net/hex.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es HEX V8?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HEX V8 es una simbología visual 2D ternaria hexagonal desarrollada por Satinus E.I.R.L. Incluye codificación, decodificación, herramienta web, lector Android y materiales técnicos de evaluación."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿HEX V8 es un producto terminado para misión crítica?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. HEX V8 se encuentra en evaluación pública avanzada. Permite probar capacidades y límites; no debe presentarse como estándar mundial ni producto de misión crítica."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿HEX V8 reemplaza al QR?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. HEX entra donde el QR se queda corto; donde HEX no cabe, el QR gana. Es complemento, no reemplazo universal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se licencia HEX V8?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La evaluación civil y pública permite conocer y probar el estándar. El uso industrial o empresarial masivo requiere licencia o acuerdo comercial escrito con Satinus E.I.R.L."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/branding/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/assets/branding/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css?v=20260728social" />
+  <link rel="stylesheet" href="/css/terms-gate.css?v=20260716m5" />
+</head>
+<body>
+
+<div class="site-social" role="navigation" aria-label="Satinus en redes sociales">
+  <ul class="site-social-list">
+    <li><a href="https://www.linkedin.com/company/satinus/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.threads.com/@satinuseirl" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+    <li><a href="https://x.com/SatinusTech" target="_blank" rel="noopener noreferrer me" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="https://github.com/satinus-EIRL" target="_blank" rel="noopener noreferrer me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.youtube.com/@SatinusEIRL" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.instagram.com/satinuseirl/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<header class="site-nav">
+  <a href="/index.html" class="brand" aria-label="Satinus inicio">
+    <img src="/assets/branding/logo-mark.png" class="brand-mark" alt="Satinus" width="32" height="32" />
+    <span class="brand-text"><span class="brand-name">Satinus</span><span class="brand-sub">E.I.R.L.</span></span>
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Menu">
+    <span class="nav-toggle-bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span>
+  </button>
+  <ul class="nav-links" id="site-nav-menu">
+    <li><a href="/index.html">Inicio</a></li>
+    <li><a href="/sobre-nosotros.html">Sobre nosotros</a></li>
+    <li><a href="/productos.html">Productos</a></li>
+    <li><a href="/hex.html" aria-current="page">HEX V8</a></li>
+    <li><a href="/documentacion.html">Documentación</a></li>
+    <li><a href="/index.html#contacto" class="btn-nav">Contacto</a></li>
+  </ul>
+</header>
+
+<main>
+  <section class="docs-intro">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">Satinus · tecnología de codificación visual</p>
+      <h1>HEX V8 — código visual hexagonal ternario</h1>
+      <p class="lead">
+        <strong>HEX V8</strong> (<em>Hexagonal Encoding eXtended</em>) es una simbología visual 2D ternaria
+        hexagonal desarrollada por Satinus E.I.R.L. Convierte datos en símbolos visuales y permite
+        recuperarlos mediante un códec <strong>encoder/decoder</strong>, visión por computadora y lectura móvil.
+      </p>
+      <div class="hero-actions" style="justify-content:flex-start">
+        <a href="/docs/materiales/hex-v8-web-tool.html" class="btn btn-primary">Probar encoder / decoder</a>
+        <a href="/docs/preprints/hex-v8-manuscrito-es.html" class="btn btn-ghost">Leer preprint</a>
+        <a href="/documentacion.html" class="btn btn-ghost">Ver documentación</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Definición</p>
+        <h2>¿Qué es HEX V8?</h2>
+        <p>
+          Es una tecnología de <strong>codificación visual</strong> basada en una geometría hexagonal y estados
+          ternarios. El ecosistema incluye generación de símbolos, decodificación desde imágenes, códigos de
+          corrección de errores, herramienta web, lector Android y protocolos de evaluación reproducibles.
+        </p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-tag">Códec</span>
+          <h3>Encoder y decoder</h3>
+          <p>Codificación de datos y recuperación desde símbolos o imágenes, con invariantes y fallos explícitos.</p>
+        </article>
+        <article class="card">
+          <span class="card-tag">Evaluación</span>
+          <h3>Campo y visión por computadora</h3>
+          <p>Lector Android, impresión, captura por cámara, rotación y materiales N8–N15 documentados.</p>
+        </article>
+        <article class="card">
+          <span class="card-tag">Estado</span>
+          <h3>Evaluación pública avanzada</h3>
+          <p>Existe tecnología funcional y evidencia pública; Satinus no afirma todavía que sea un estándar mundial.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section section--tight">
+    <div class="wrap wrap--narrow">
+      <div class="section-head">
+        <p class="eyebrow">Modelo de adopción</p>
+        <h2>Evaluación abierta; uso industrial bajo licencia</h2>
+        <p>
+          Satinus mantiene una capa gratuita de evaluación y adopción civil para que el estándar pueda conocerse,
+          probarse y permanecer vivo. El uso industrial o empresarial masivo, la integración y el soporte se
+          realizan mediante licencia o acuerdo comercial escrito.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section section--tight" id="preguntas">
+    <div class="wrap wrap--narrow">
+      <div class="section-head"><p class="eyebrow">Preguntas frecuentes</p><h2>HEX V8 en breve</h2></div>
+      <div class="activity-block">
+        <h3>¿Qué significa HEX V8?</h3>
+        <p>HEX corresponde a <em>Hexagonal Encoding eXtended</em>; V8 identifica la versión actual del protocolo.</p>
+        <h3>¿Reemplaza hoy a QR?</h3>
+        <p>No. HEX entra donde el QR se queda corto; donde HEX no cabe, el QR gana. Complemento y respeto, no reemplazo universal. El preprint declara capacidades y límites bajo condiciones documentadas.</p>
+        <h3>¿Dónde puedo probarlo?</h3>
+        <p>En la <a href="/docs/materiales/hex-v8-web-tool.html">herramienta web HEX</a> y con el <a href="https://github.com/Satinus/hex-scanner/releases/latest" rel="noopener noreferrer">lector Android de evaluación</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</span>
+  <div class="footer-links">
+    <a href="/sobre-nosotros.html">Sobre nosotros</a>
+    <a href="/productos.html">Productos</a>
+    <a href="/documentacion.html">Documentación</a>
+    <a href="/aviso-legal.html">Aviso legal</a>
+    <a href="mailto:satinuseirl@gmail.com">Contacto</a>
+  </div>
+</footer>
+
+<script src="/js/terms-content.js"></script>
+<script src="/js/nav.js?v=20260728social"></script>
+<script src="/js/terms-gate.js"></script>
+</body>
+</html>

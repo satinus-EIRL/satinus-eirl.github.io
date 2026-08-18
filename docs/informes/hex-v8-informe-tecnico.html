@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEX V8 — Especificación e informe técnico | Satinus</title>
+  <meta name="description" content="Informe técnico HEX V8: especificación del código visual hexagonal ternario, arquitectura encoder/decoder, capacidad, protocolo de campo y materiales reproducibles." />
+  <link rel="canonical" href="https://satinus.net/docs/informes/hex-v8-informe-tecnico.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="HEX V8 — Especificación e informe técnico" />
+  <meta property="og:description" content="Arquitectura, capacidad, visión por computadora, protocolo de evaluación y registro de campo de HEX V8." />
+  <meta property="og:url" content="https://satinus.net/docs/informes/hex-v8-informe-tecnico.html" />
+  <meta name="twitter:title" content="HEX V8 — Especificación e informe técnico" />
+  <meta name="twitter:description" content="Arquitectura, capacidad, visión por computadora, protocolo de evaluación y registro de campo de HEX V8." />
+  <meta property="og:site_name" content="Satinus E.I.R.L." />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Satinus E.I.R.L." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta name="twitter:image:alt" content="Satinus E.I.R.L." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://satinus.net/docs/informes/hex-v8-informe-tecnico.html#article",
+    "headline": "HEX V8 — Especificación e informe técnico",
+    "description": "Especificación del código visual hexagonal ternario HEX V8, arquitectura encoder/decoder, capacidad, protocolo de campo y materiales reproducibles.",
+    "url": "https://satinus.net/docs/informes/hex-v8-informe-tecnico.html",
+    "image": "https://satinus.net/assets/branding/og-share.png",
+    "inLanguage": "es",
+    "dateModified": "2026-08-05",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://satinus.net/#organization",
+      "name": "Satinus E.I.R.L."
+    },
+    "about": {
+      "@id": "https://satinus.net/hex.html#hex-v8"
+    },
+    "keywords": "HEX V8, Hexagonal Encoding eXtended, código visual hexagonal, simbología 2D ternaria, encoder decoder, visión por computadora"
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/branding/icon-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css?v=20260728social" />
+  <link rel="stylesheet" href="/css/doc-page.css" />
+  <link rel="stylesheet" href="/css/terms-gate.css" />
+</head>
+<body>
+
+<div class="site-social" role="navigation" aria-label="Satinus en redes sociales">
+  <ul class="site-social-list">
+    <li><a href="https://www.linkedin.com/company/satinus/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.threads.com/@satinuseirl" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+    <li><a href="https://x.com/SatinusTech" target="_blank" rel="noopener noreferrer me" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="https://github.com/satinus-EIRL" target="_blank" rel="noopener noreferrer me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.youtube.com/@SatinusEIRL" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.instagram.com/satinuseirl/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<header class="site-nav">
+  <a href="/index.html" class="brand" data-i18n-aria="nav.home" aria-label="Satinus inicio">
+    <img src="/assets/branding/logo-mark.png" class="brand-mark" alt="Satinus" width="32" height="32" />
+    <span class="brand-text">
+      <span class="brand-name">Satinus</span>
+      <span class="brand-sub">E.I.R.L.</span>
+    </span>
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" data-i18n-aria="nav.menu" aria-label="Menu">
+    <span class="nav-toggle-bars" aria-hidden="true"></span>
+    <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+  </button>
+  <ul class="nav-links" id="site-nav-menu">
+    <li><a href="/index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="/sobre-nosotros.html" data-i18n="nav.about">Sobre nosotros</a></li>
+    <li><a href="/productos.html" data-i18n="nav.products">Productos</a></li>
+    <li><a href="/boletin.html" data-i18n="nav.boletin">Boletín</a></li>
+    <li><a href="/documentacion.html" aria-current="page" data-i18n="nav.docs">Documentación</a></li>
+    <li><a href="/index.html#contacto" class="btn-nav" data-i18n="nav.contact">Contacto</a></li>
+    <li class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </li>
+  </ul>
+</header>
+<main>
+  <section class="doc-page-hero">
+    <div class="wrap wrap--doc-wide">
+      <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+        <a href="/index.html" data-i18n="breadcrumb.home">Inicio</a>
+        <span class="doc-breadcrumb-sep">/</span>
+        <a href="/documentacion.html" data-i18n="breadcrumb.docs">Documentación</a>
+        <span class="doc-breadcrumb-sep">/</span>
+        <span data-i18n="breadcrumb.informe">Informe técnico</span>
+      </nav>
+      <p class="doc-hero-lead" data-i18n="doc.hero.informe">Referencia técnica ampliada [18]: especificación, capacidad RS-M, protocolo de evaluación y registro de campo.</p>
+    </div>
+  </section>
+  <div class="wrap wrap--doc-wide doc-page-layout">
+    <article class="doc-page-body doc-prose">
+      
+<h1>HEX V8 — Informe técnico</h1>
+<p class="doc-meta"><span class="doc-meta-badge">v1.2</span><span>Referencia [18] del preprint · Satinus E.I.R.L. · 2026</span></p>
+<p>Documentación ampliada del formato <strong>HEX V8</strong> (<em>Hexagonal Encoding eXtended</em>): especificación, capacidad, protocolo de evaluación en campo, arquitectura del lector móvil, modelo óptico de captura y materiales reproducibles. La síntesis narrativa está en el preprint: <a href="../preprints/hex-v8-manuscrito-es.html">español</a> · <a href="../preprints/hex-v8-manuscript-en.html">English</a> · <a href="../preprints/hex-v8-manuscrito-pt.html">português (Brasil)</a> (v1.5.4).</p>
+
+<h2>1. Especificación convergente</h2>
+<ul>
+  <li>Malla triangular ternaria, rombos S2-octal, header V8 de 8 bytes, Reed–Solomon GF(256) nivel M.</li>
+  <li><em>Ring interleave</em> entre coronas; borrado nativo del par trit (1,1); spec visual v1.1 (trit 1 = checkerboard).</li>
+  <li>Parámetro de escala <strong>N</strong>; niveles de campo validados: <strong>N8–N15</strong>.</li>
+  <li>Cadena Auto de protocolo: <strong>8 → 10 → 12 → 15</strong> (N impares intermedios omitidos por coherencia de fase —ver preprint §7.2).</li>
+</ul>
+
+<h2>2. Capacidad (RS-M)</h2>
+<table>
+  <thead><tr><th>N</th><th>mm impresión</th><th>Datos máx. (B)</th><th>Cap. geom. (B)</th></tr></thead>
+  <tbody><tr><td>N8</td><td>58.0</td><td>11</td><td>13</td></tr>
+<tr><td>N9</td><td>58.0</td><td>22</td><td>24</td></tr>
+<tr><td>N10</td><td>58.0</td><td>35</td><td>37</td></tr>
+<tr><td>N11</td><td>64.0</td><td>51</td><td>53</td></tr>
+<tr><td>N12</td><td>70.0</td><td>69</td><td>71</td></tr>
+<tr><td>N13</td><td>76.0</td><td>89</td><td>91</td></tr>
+<tr><td>N14</td><td>81.0</td><td>112</td><td>114</td></tr>
+<tr><td>N15</td><td>85.0</td><td>137</td><td>139</td></tr>
+</tbody>
+</table>
+<p>Fórmula geométrica: T<sub>datos</sub> = 6K², K = N − 3; overhead 25 rombos (header + anclas). Umbral operativo de legibilidad: <strong>tri_mm ≳ 5 mm</strong>. Detalle en preprint §4.</p>
+
+<h2>3. Protocolo de evaluación (campo)</h2>
+<table>
+  <thead><tr><th>Parámetro</th><th>Valor</th></tr></thead>
+  <tbody>
+    <tr><td>Reed–Solomon</td><td>Nivel M (~20 % paridad)</td></tr>
+    <tr><td>Impresión</td><td>300 DPI, escala 100 %</td></tr>
+    <tr><td>Distancia captura</td><td>25–35 cm</td></tr>
+    <tr><td>Dispositivo referencia</td><td>Redmi Note 9 Pro (único hardware documentado)</td></tr>
+    <tr><td>Óptica</td><td>64 MP, f/1,9, 26 mm eq., sensor 1/1,72″, binning 4:1 en captura</td></tr>
+    <tr><td>Pipeline</td><td>ROI → JPEG → buffer decode ~560 px ancho</td></tr>
+    <tr><td>Monitor secundario</td><td>Lenovo ThinkPad L14 · WUXGA 1920×1200 · d<sub>display</sub> ≈ 0,157 mm</td></tr>
+    <tr><td>Lector</td><td>APK 0.4.7 (baseline congelado, jul 2026)</td></tr>
+    <tr><td>Sesión</td><td>Auto N8→N15 secuencial</td></tr>
+    <tr><td>Éxito papel</td><td>4/4 OK (N8, N10, N12, N15)</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Modelo óptico y tolerancia de encuadre</h2>
+<p>La telemetría <code>centerDy</code> (desplazamiento vertical del anillo detectado en el buffer de decode, px) se traduce al marco paraxial del preprint §6.0–§7.1:</p>
+<p><code>δθ<sub>y</sub> ≈ (centerDy / H<sub>decode</sub>) · 2 arctan(h<sub>sensor</sub> / 2f)</code></p>
+<p>En el baseline Redmi (f ≈ 5,6 mm, D ≈ 30 cm, H<sub>decode</sub> ≈ 560 px): aciertos N15 ≈ <strong>−14 px</strong> (≈ <strong>−1,7°</strong>); misses ≈ <strong>+11…+26 px</strong> (≈ <strong>+1,3°…+3,1°</strong>). Ventana operativa empírica: <strong>±2°</strong> en elevación —límite físico de óptica móvil, no fallo aleatorio del códec RS.</p>
+
+<h2>5. Lector móvil (baseline 0.4.7)</h2>
+<ul>
+  <li><strong>ProfileRouter</strong>: perfiles papel / pantalla / denso.</li>
+  <li>Etapas <strong>S0 → S1 → S2</strong> (políticas de coste de preprocesado).</li>
+  <li>Resolución de N antes del barrido; <code>sessionNHint</code> persistente.</li>
+  <li>Telemetría JSON por intento: <code>decodeMs</code>, <code>centerDy</code>, etapa, perfil, motivo de fallo.</li>
+</ul>
+<p>Congelación documentada: julio 2026. Warp canónico experimental: desactivado.</p>
+
+<h2>6. Registro de campo</h2>
+<ul>
+  <li><strong>Papel</strong> — sesión confirmatoria 2026-07-04: 4/4 OK secuencial; cinco misses N15 por encuadre (<code>centerDy</code> positivo, fuera de tolerancia angular).</li>
+  <li><strong>Monitor</strong> — golden 2026-07-03: 4/4 OK; confirmación 2026-07-04: 4/4 OK (canal secundario; sensibilidad a moiré —preprint §6.3).</li>
+  <li><strong>Corpus sintético</strong> — 15/15 (JPEG, blur, shift, perspectiva); paridad Python / TypeScript.</li>
+</ul>
+
+<h2>7. Materiales descargables</h2>
+<ul>
+  <li><a href="../materiales/hex-size-reference.pdf">Hoja de tamaños (PDF)</a> — N8–N15 campo + N18/N22 referencia.</li>
+  <li><a href="../materiales/hex-max-capacity.pdf">Capacidad máxima RS-M (PDF)</a> — payloads saturados N8–N15.</li>
+  <li><a href="../materiales/hex-max-capacity-manifest.json">Manifest capacidad (JSON)</a></li>
+  <li><a href="../materiales/hex-v8-web-tool.html">HEX: Encoder / Decoder</a> — encode y decode en navegador (motor TypeScript v0.2.0; alcance didáctico —ver preprint §8.4).</li>
+</ul>
+
+<h2>8. Aplicación lectora</h2>
+<p>APK <strong>0.4.7</strong> en distribución controlada durante la fase preprint. Solicitar acceso: <a href="mailto:satinuseirl@gmail.com">satinuseirl@gmail.com</a>.</p>
+
+<hr />
+<p class="doc-meta">© 2026 Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</p>
+
+    </article>
+    
+        <aside class="doc-sidebar" aria-label="Table of contents">
+          <h2 data-i18n="doc.toc">En esta página</h2>
+          <ul class="doc-toc" id="doc-toc"></ul>
+          <p class="doc-lang-note" data-i18n="doc.langNote">Este documento está publicado en español.</p>
+          
+      <div class="doc-related">
+        <h2 data-i18n="doc.related">Documentos relacionados</h2>
+        <ul>
+          <li><a href="/docs/preprints/hex-v8-manuscrito-es.html">HEX V8 — Preprint (es)</a></li>
+          <li><a href="/docs/preprints/hex-v8-manuscript-en.html">HEX V8 — Preprint (en)</a></li>
+          <li><a href="/docs/preprints/hex-v8-manuscrito-pt.html">HEX V8 — Preprint (pt)</a></li>
+          <li><a href="/docs/informes/hex-v8-informe-tecnico.html">HEX V8 — Informe técnico</a></li>
+          <li><a href="/docs/materiales/hex-v8-web-tool.html">HEX: Encoder / Decoder</a></li>
+          <li><a href="/docs/materiales/hex-size-reference.pdf">Hoja de tamaños (PDF)</a></li>
+        </ul>
+      </div>
+        </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer.copy">Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</span>
+  <div class="footer-links">
+    <a href="/sobre-nosotros.html" data-i18n="footer.about">Sobre nosotros</a>
+    <a href="/actividad.html" data-i18n="footer.activity">Actividad</a>
+    <a href="/productos.html" data-i18n="footer.products">Productos</a>
+    <a href="/boletin.html" data-i18n="footer.boletin">Boletín</a>
+    <a href="/documentacion.html" data-i18n="footer.docs">Documentación</a>
+    <a href="/privacidad.html" data-i18n="footer.privacy">Privacidad</a>
+    <a href="/aviso-legal.html" data-i18n="footer.legal">Aviso legal</a>
+    <a href="/terminos.html" data-i18n="footer.terms">Términos de uso</a>
+    <a href="mailto:satinuseirl@gmail.com" data-i18n="footer.contact">Contacto</a>
+  </div>
+</footer>
+<script src="/js/terms-content.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/nav.js?v=20260728social"></script>
+<script src="/js/terms-gate.js"></script>
+<script src="/js/doc-page.js"></script>
+</body>
+</html>

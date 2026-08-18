@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEX V8 — Preprint (español) | Satinus</title>
+  <meta name="description" content="Preprint HEX V8: diseño, evaluación experimental, capacidad y limitaciones del código visual hexagonal ternario Hexagonal Encoding eXtended." />
+  <link rel="canonical" href="https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="HEX V8 — Preprint (español)" />
+  <meta property="og:description" content="Manuscrito público de HEX V8: diseño, evaluación experimental y límites del formato ternario hexagonal." />
+  <meta property="og:url" content="https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html" />
+  <meta name="twitter:title" content="HEX V8 — Preprint (español)" />
+  <meta name="twitter:description" content="Manuscrito público de HEX V8: diseño, evaluación experimental y límites del formato ternario hexagonal." />
+  <meta property="og:site_name" content="Satinus E.I.R.L." />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Satinus E.I.R.L." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://satinus.net/assets/branding/og-share.png" />
+  <meta name="twitter:image:alt" content="Satinus E.I.R.L." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html#article",
+    "headline": "HEX V8 — Preprint (español)",
+    "description": "Preprint público de HEX V8: diseño, evaluación experimental y limitaciones del código visual hexagonal ternario.",
+    "url": "https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html",
+    "image": "https://satinus.net/assets/branding/og-share.png",
+    "inLanguage": "es",
+    "dateModified": "2026-08-05",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://satinus.net/#organization",
+      "name": "Satinus E.I.R.L."
+    },
+    "about": {
+      "@id": "https://satinus.net/hex.html#hex-v8"
+    },
+    "keywords": "HEX V8, Hexagonal Encoding eXtended, preprint, código visual hexagonal, simbología 2D ternaria"
+  }
+  </script>
+  <link rel="alternate" hreflang="es" href="https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html" />
+  <link rel="alternate" hreflang="en" href="https://satinus.net/docs/preprints/hex-v8-manuscript-en.html" />
+  <link rel="alternate" hreflang="pt" href="https://satinus.net/docs/preprints/hex-v8-manuscrito-pt.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://satinus.net/docs/preprints/hex-v8-manuscrito-pt.html" />
+  <link rel="alternate" hreflang="x-default" href="https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/branding/icon-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css?v=20260728social" />
+  <link rel="stylesheet" href="/css/doc-page.css" />
+  <link rel="stylesheet" href="/css/terms-gate.css" />
+</head>
+<body>
+
+<div class="site-social" role="navigation" aria-label="Satinus en redes sociales">
+  <ul class="site-social-list">
+    <li><a href="https://www.linkedin.com/company/satinus/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.threads.com/@satinuseirl" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+    <li><a href="https://x.com/SatinusTech" target="_blank" rel="noopener noreferrer me" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="https://github.com/satinus-EIRL" target="_blank" rel="noopener noreferrer me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.youtube.com/@SatinusEIRL" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+    <li><a href="https://www.instagram.com/satinuseirl/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<header class="site-nav">
+  <a href="/index.html" class="brand" data-i18n-aria="nav.home" aria-label="Satinus inicio">
+    <img src="/assets/branding/logo-mark.png" class="brand-mark" alt="Satinus" width="32" height="32" />
+    <span class="brand-text">
+      <span class="brand-name">Satinus</span>
+      <span class="brand-sub">E.I.R.L.</span>
+    </span>
+  </a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" data-i18n-aria="nav.menu" aria-label="Menu">
+    <span class="nav-toggle-bars" aria-hidden="true"></span>
+    <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+  </button>
+  <ul class="nav-links" id="site-nav-menu">
+    <li><a href="/index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="/sobre-nosotros.html" data-i18n="nav.about">Sobre nosotros</a></li>
+    <li><a href="/productos.html" data-i18n="nav.products">Productos</a></li>
+    <li><a href="/boletin.html" data-i18n="nav.boletin">Boletín</a></li>
+    <li><a href="/documentacion.html" aria-current="page" data-i18n="nav.docs">Documentación</a></li>
+    <li><a href="/index.html#contacto" class="btn-nav" data-i18n="nav.contact">Contacto</a></li>
+    <li class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </li>
+  </ul>
+</header>
+<main>
+  <section class="doc-page-hero">
+    <div class="wrap wrap--doc-wide">
+      <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+        <a href="/index.html" data-i18n="breadcrumb.home">Inicio</a>
+        <span class="doc-breadcrumb-sep">/</span>
+        <a href="/documentacion.html" data-i18n="breadcrumb.docs">Documentación</a>
+        <span class="doc-breadcrumb-sep">/</span>
+        <span data-i18n="breadcrumb.preprint">Preprint</span>
+      </nav>
+      <p class="doc-hero-lead" data-i18n="doc.hero.preprint.es">Manuscrito en español: símbolo 2D ternario hexagonal, capacidad escalable y lectura móvil bajo impresión controlada.</p>
+      <p class="doc-alt-langs" role="navigation" aria-label="Idioma del manuscrito"><span class="doc-alt-langs-label">Idioma del manuscrito</span> <a class="doc-alt-lang is-current" href="/docs/preprints/hex-v8-manuscrito-es.html" aria-current="page">Español</a><span class="doc-alt-sep" aria-hidden="true">·</span><a class="doc-alt-lang" href="/docs/preprints/hex-v8-manuscript-en.html">English</a><span class="doc-alt-sep" aria-hidden="true">·</span><a class="doc-alt-lang" href="/docs/preprints/hex-v8-manuscrito-pt.html">Português (Brasil)</a></p>
+    </div>
+  </section>
+  <div class="wrap wrap--doc-wide doc-page-layout">
+    <article class="doc-page-body doc-prose">
+      <h1>HEX V8 — Preprint (español)</h1><p class="doc-meta"><span class="doc-meta-badge">v1.5.4</span><span>Satinus E.I.R.L. · 2026 · Referencia [18] en informe técnico</span></p><h1>HEX V8: un símbolo 2D ternario hexagonal con capacidad escalable y lectura móvil bajo condiciones de impresión controladas</h1>
+<p><strong>Autor:</strong> Jorge Figueroa<br>
+<strong>Afiliación:</strong> Investigador independiente, Satinus E.I.R.L., Chile<br>
+<strong>Contacto:</strong> <a href="mailto:jorgefigueroacifuentes@gmail.com">jorgefigueroacifuentes@gmail.com</a>, <a href="mailto:satinuseirl@gmail.com">satinuseirl@gmail.com</a><br>
+<strong>Fecha:</strong> 2026-07-12 (pasada de cohesión narrativa, alineada a EN)</p>
+<hr>
+<h2>Resumen</h2>
+<p>Los códigos bidimensionales dominantes —QR Code, Data Matrix y Aztec— codifican el payload en módulos binarios sobre una cuadrícula rectangular. Ese diseño favorece el ecosistema y la lectura integrada en smartphone, pero impone un techo práctico de bytes recuperables cuando el símbolo debe seguir siendo legible con óptica móvil, distancia típica de escaneo e impresión monocroma.</p>
+<p>Este trabajo formula una pregunta acotada: bajo reglas explícitas de escala en milímetros y con un lector dedicado, ¿puede un símbolo monocromo con geometría distinta de la cuadrícula y más de dos estados por elemento físico transportar más bytes útiles que un QR de referencia a legibilidad comparable? La respuesta evaluada es <strong>HEX V8</strong> (<em>Hexagonal Encoding eXtended</em>): malla triangular ternaria empaquetada en rombos S2-octal; header autodescriptivo de 8 bytes; Reed–Solomon en GF(256) con borrados nativos del par (1,1); <em>ring interleave</em>; padding determinista; y capa visual checkerboard (spec v1.1), decodificada por un pipeline móvil alineado al anillo hexagonal y al parámetro <strong>N</strong>.</p>
+<p>Bajo un protocolo declarado (RS-M, 300 DPI al 100 %, captura a 25–35 cm, tri_mm (arista media del triángulo impreso, en mm) ≈ 5 mm, sesión Auto N8→N15), un modelo cerrado de capacidad, una regresión sintética 15/15 y pruebas de campo en papel con el lector <strong>Android</strong> 0.4.7 —instalado como <strong>APK de distribución libre</strong>— en un Redmi Note 9 Pro documentado producen <strong>137 B</strong> de payload útil en HEX N15 (impreso ≈ <strong>85 mm</strong>) frente a ~37 B de un QR de referencia a ~<strong>25 mm</strong> a la misma legibilidad de arista. Eso <strong>no</strong> es un claim a igual huella: a $\mathrm{tri_mm}$ fijo, subir $N$ <strong>agranda</strong> $\mathrm{code_mm}$ (p. ej. N10 a 58 mm transporta 35 B; N15 a 85 mm transporta 137 B). HEX V8 <strong>no sustituye</strong> la universalidad del QR ni reduce la huella de un QR pequeño: es un canal monocromo especializado que exige aplicación dedicada, impresión controlada y encuadre angular estricto en N altos.</p>
+<p><strong>Palabras clave:</strong> código 2D; código de barras 2D; codificación ternaria; malla hexagonal; Reed–Solomon; visión por computador móvil; capacidad de payload; QR Code; Data Matrix; Aztec; simbología monocroma</p>
+<hr>
+<h2>1. Contexto: códigos bidimensionales y capacidad bajo límites de legibilidad</h2>
+<p>Los códigos de barras <strong>bidimensionales</strong> actúan como un <strong>canal físico</strong>: convierten un <strong>payload de datos</strong> —secuencia de bytes con significado para la aplicación— en un patrón imprimible o mostrable, y un lector con cámara intenta recuperar esos bytes. En la práctica el payload viaja <strong>en claro</strong> en el símbolo; la corrección de errores protege contra daños de impresión y captura, no sustituye cifrado.</p>
+<p>El modelo dominante —<strong>QR Code</strong> [1,7], <strong>Data Matrix</strong> [2], <strong>Aztec</strong> [3]— empaqueta la información en <strong>módulos binarios</strong> (dos estados por celda: claro u oscuro) sobre una <strong>cuadrícula</strong> rectangular. Tras detectar marcadores de sincronización (finders, bullseye, perímetro), el lector muestrea cada módulo y reconstruye bits; la capa lógica aplica <strong>Reed–Solomon</strong> [5] en GF(256) sobre bloques de bytes. La <strong>versión</strong> o el <strong>tamaño del módulo</strong> escala la capacidad: a mayor versión, más filas de módulos y más bytes posibles, a costa de un símbolo físicamente mayor o de celdas más pequeñas y más difíciles de leer.</p>
+<p>Ese diseño prioriza <strong>ecosistema</strong>: estandarización (p. ej. ISO/IEC 18004 [1]), lectores integrados en smartphones y flujos de impresión conocidos. El coste estructural es un <strong>techo de capacidad útil bajo legibilidad móvil</strong>: cuántos bytes recuperables quedan disponibles cuando el elemento mínimo impreso debe seguir siendo legible con ópticas móviles, distancia típica de ~25–35 cm e impresión monocroma cotidiana [6,17]. Reducir el módulo aumenta los bits/mm² <em>nominales</em> pero reduce el margen ante desenfoque, curvatura del soporte y resolución efectiva de la cámara—así que «mayor densidad» y «más payload útil bajo lectura de campo» no son el mismo objetivo.</p>
+<p>Otras simbologías abordan el mismo problema con compromisos distintos. <strong>DotCode</strong> [16] apunta a impresión industrial de alta velocidad y sigue siendo binario por punto. Los códigos <strong>multicanal en color</strong> [13,14] multiplican estados por celda, pero exigen reproducción fiel del color y calibración de cámara —condiciones más frágiles que monocromo en campo. <strong>MaxiCode</strong> [15] emplea celdas hexagonales en un formato cerrado de mensajería, no un códec abierto de bytes arbitrarios. En conjunto, la familia ISO más extendida comparte un supuesto: <strong>un módulo ≈ un bit</strong>, muestreo sobre <strong>cuadrícula</strong> (o equivalente rectangular) y pipelines de lectura diseñados para ese supuesto [8–10,17].</p>
+<p>La lectura con <strong>cámara móvil</strong> está bien documentada: detección, corrección de perspectiva (homografía), binarización y decodificación RS. Esas técnicas no se trasladan automáticamente a un símbolo con <strong>otra geometría</strong> o <strong>más de dos estados por elemento</strong> sin rediseñar detección, muestreo y capa lógica. Queda abierta, como pregunta de diseño, la exploración de formatos <strong>monocromos</strong>, con <strong>lector dedicado</strong> y reglas de impresión explícitas, cuando el objetivo es priorizar <strong>capacidad de payload</strong> frente a universalidad de lectura.</p>
+<hr>
+<h2>2. Pregunta de investigación</h2>
+<p>Ante el panorama de §1, este trabajo parte de una pregunta <strong>abierta y acotada</strong>:</p>
+<blockquote>
+<p><strong>¿Es posible diseñar un símbolo 2D monocromo, con geometría distinta de la cuadrícula binaria y más de dos estados por elemento físico, que transporte más bytes útiles de payload que los códigos de referencia (p. ej. QR) <em>a legibilidad móvil comparable</em>, siendo legible con un lector dedicado bajo condiciones explícitas de impresión?</strong></p>
+</blockquote>
+<p>No se pregunta si buscamos un <strong>sustituto</strong> del QR en ecosistema, norma ISO ni confidencialidad. <strong>No</strong> se pregunta si HEX empaqueta más bits en una caja impresa <em>más pequeña</em> que un QR compacto. Se pregunta si existe una <strong>alternativa medible</strong> en payload útil cuando el símbolo se imprime y se lee bajo reglas declaradas: tamaño en milímetros, resolución de impresión, distancia de captura y umbral de legibilidad del elemento mínimo (<strong>tri_mm</strong>) —cuantificados en §4 y §6. Bajo esas reglas, subir $N$ cambia una huella <strong>mayor</strong> por más bytes manteniendo la legibilidad de arista aproximadamente fija.</p>
+<p>El resto del artículo relata <strong>cómo se buscó esa alternativa</strong>: qué se probó, qué capas se añadieron hasta converger en la versión evaluada, qué datos se obtuvieron y qué se entrega como evidencia. El nombre <strong>HEX</strong> (<em>Hexagonal Encoding eXtended</em>) y el protocolo <strong>V8</strong> designan esa convergencia; el desglose de la sigla se retoma en §3.7.</p>
+<p><strong>Organización.</strong> §3 traza la evolución del diseño hasta HEX V8 (capa lógica en §3.5; Tabla 1). §4 cuantifica capacidad y escala de impresión (Tabla 2). §5 describe el lector móvil dedicado (perfiles, etapas y resolución de N; Tabla 7). §6 declara el protocolo de evaluación (Tabla 6), reporta evidencia sintética y de campo, y ofrece una comparación acotada con QR (Tablas 4–5b). Las contribuciones numeradas aparecen en §8.2, tras la evidencia. §7–§9 cubren limitaciones, conclusiones y disponibilidad de materiales. Los apéndices indexan términos y floats.</p>
+<hr>
+<h2>3. Construcción del formato: evolución del diseño</h2>
+<p>A partir de la pregunta de §2 se abrió una línea de diseño que más tarde se denominó <strong>HEX</strong>. El formato <strong>no se definió de una sola vez</strong>: esta sección sigue el orden en que se probaron ideas y se añadieron capas, cada una en respuesta al límite de la anterior, hasta la versión <strong>V8</strong> evaluada en §6.</p>
+<p><img alt="Figura 7 — Evolución del diseño" src="/docs/assets/paper-figures/fig07_design_evolution.png"></p>
+<p><em>Figura 7.</em> Secuencia de decisiones de diseño (§3.1–3.7).</p>
+<h3>3.1 Punto de partida: panal hexagonal binario</h3>
+<p>La primera propuesta concreta fue deliberadamente modesta: un <strong>símbolo con silueta hexagonal</strong> formado por <strong>módulos hexagonales binarios</strong> (blanco/negro), inspirado en la teselación del panal pero conservando el <strong>bit por celda</strong> del QR. El payload se concentraba en un <strong>borde</strong> codificado con Reed–Solomon; el interior cumplía sobre todo función estructural. Era un banco de pruebas <strong>teórico</strong>: verificar si la geometría hexagonal merecía exploración antes de invertir en un alfabeto más rico.</p>
+<p>En paralelo se fijaron restricciones alineadas con §2: sin canal RGB [13,14]; sin asumir el lector QR del teléfono; sí aceptar un <strong>lector dedicado</strong> y reglas de impresión explícitas (DPI, tamaño en mm) a cambio de buscar <strong>más bytes útiles a un umbral de arista declarado</strong>, no una huella menor que un QR compacto.</p>
+<h3>3.2 Primera línea: borde binario (insuficiente)</h3>
+<p>La implementación agrupó triángulos en módulos hexagonales de primer nivel y codificó datos en el perímetro. Las capacidades medidas quedaron del orden de <strong>18 B (N8)</strong> a <strong>64 B (N20)</strong> —muy por debajo de un QR comparable (p. ej. versión 10 nivel M ≈ 652 B en referencia habitual).</p>
+<p>El hexágono grueso como unidad y un canal <strong>binario</strong> perimetral <strong>desperdiciaban el área interior</strong> y no competían en densidad con la cuadrícula madura del QR. Era necesario cambiar <strong>alfabeto</strong> y <strong>empaquetado</strong>, no solo la silueta exterior.</p>
+<h3>3.3 Malla triangular y trit</h3>
+<p>La silueta se <strong>fragmentó</strong> en una <strong>malla triangular hexagonal</strong> —teselación bariocéntrica de triángulos equiláteros alternos <em>upright</em> e <em>inverted</em>. Cada triángulo codificable lleva un <strong>trit</strong>, dígito <strong>ternario</strong> $\in{0,1,2}$. Nominalmente cada trit aporta $\log_2 3\approx 1{,}58$ bit de información por celda, frente a 1 bit del módulo QR.</p>
+<p>Los trits aislados, sin embargo, no forman bytes estables ni resisten el ruido de captura sin una capa lógica adicional.</p>
+<h3>3.4 Rombo, S2-octal y parámetro N</h3>
+<p>Los trits se empaquetan en <strong>rombos</strong>: cada rombo une un triángulo upright con uno inverted adyacente (arista compartida). Dos trits admiten <strong>nueve</strong> combinaciones; <strong>ocho</strong> se mapean a un símbolo de datos <strong>S2-octal de 3 bits</strong> y el par <strong>(1, 1)</strong> queda reservado como <strong>borrado</strong> nativo (§3.5.1)—ese es el puente de celdas ternarias a alfabeto octal de cómputo, no la afirmación de que un trit valga tres bits.</p>
+<p>El entero <strong>N</strong> es el número de <strong>divisiones radiales</strong> de la malla triangular del panal (cuán finamente se subdivide el hexágono en coronas de triángulos concéntricas). <strong>No</strong> es un «número de versión» al estilo QR dibujado como hexágonos anidados. A mayor $N$, más triángulos codificables y por tanto más rombos de payload (§4); a $\mathrm{tri_mm}$ fijo, también <strong>aumenta</strong> el ancho flat-to-flat impreso $\mathrm{code_mm}$. La unidad atómica de codificación es el <strong>rombo</strong>, no el triángulo aislado ni el hexágono grueso de §3.2.</p>
+<p><img alt="Figura 4d — Escalado de tamaño y payload con N" src="/docs/assets/paper-figures/fig04d_n_scalability.png" style="width:50%; max-width:50%; height:auto; display:block; margin:0.5em auto;" /></p>
+<p><em>Figura 4d.</em> Escalado de huella impresa y payload útil (RS-M) con el parámetro $N$ (subset N8 / N12 / N15; valores de Tabla 2). A legibilidad de arista comparable, subir $N$ <strong>agranda</strong> $\mathrm{code_mm}$ y la capacidad.</p>
+<p>Bajo las alternativas exploradas en esta línea —trit aislado, hexágono binario grueso (§3.2) y un empaquetado experimental por células de tres rombos— el <strong>S2-octal</strong> ofrece el mejor balance hasta la fecha entre capacidad, alineación a bytes/RS y rastreabilidad óptica (§3.5.1, §7). La agrupación de tres rombos por hexágono se evaluó solo como hipótesis de packing y <strong>no</strong> entra en el códec V8; se menciona aquí por completitud del diseño.</p>
+<p><img alt="Figura 4b — Alfabeto S2-octal (8 datos + erasure)" src="/docs/assets/paper-figures/trit_atlas/sheet_s2_octal_rombos.png"></p>
+<p><em>Figura 4b.</em> Atlas de rombos: ocho símbolos de datos (3 bits) y el par (1,1) reservado como borrado. Arista compartida entre upright e inverted.</p>
+<h3>3.5 Capa lógica: S2-octal, header, interleave y Reed–Solomon</h3>
+<p>La captura no devuelve trits perfectos: manchas, compresión JPEG, desenfoque y ambigüedad en clasificación convierten el símbolo impreso en un <strong>canal ruidoso</strong>. La capa lógica V8 responde con tres decisiones acopladas: un alfabeto físico con señal de borrado, un orden de escritura resistente a daño local y un bloque de metadatos autocontenido.</p>
+<h4>3.5.1 Símbolos S2-octal y erasure nativo</h4>
+<p>Cada rombo aporta dos trits $(t_a, t_b)$. Nueve combinaciones son posibles; ocho se mapean a símbolos de datos ${0,\ldots,7}$ (3 bits cada uno) y el par <strong>(1, 1)</strong> queda <strong>excluido</strong> de la tabla de codificación. Si el lector clasifica un rombo como (1, 1) —ambigüedad típica del trit checkerboard bajo ruido— el decodificador no lo interpreta como dato: lo registra como <strong>borrado</strong> (<em>erasure</em>) en posición conocida. En Reed–Solomon, corregir un borrado consume la mitad de la paridad que corregir un error en posición desconocida; el diseño alinea el alfabeto físico con el tipo de fallo más frecuente en captura móvil.</p>
+<p>Los símbolos se empaquetan en bytes (MSB-first, tres símbolos por byte con un bit de relleno) antes de aplicar RS en GF(256), igual que en QR, pero la unidad de corrección visual sigue siendo el <strong>rombo</strong>, no el byte aislado.</p>
+<h4>3.5.2 Header V8 (8 bytes)</h4>
+<p>El header es un bloque <strong>fijo de 8 bytes</strong> serializado en big-endian. Viaja al inicio del flujo lógico y se replica en los primeros rombos de la malla. Su integridad se protege con <strong>CRC-8/MAXIM</strong> sobre los siete primeros bytes; el decodificador rechaza headers corruptos antes de intentar RS (<em>fail-fast</em>).</p>
+<p><strong>Tabla 1.</strong> Layout del header V8</p>
+<table>
+<thead>
+<tr>
+<th>Byte(s)</th>
+<th>Campo</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>protocol_version</code></td>
+<td>Versión del protocolo (V8 = <code>0x08</code>)</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>n_divisions</code></td>
+<td>Parámetro <strong>N</strong> del símbolo</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td><code>data_length</code></td>
+<td>Longitud del payload en claro (uint16 BE)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>rs_nsym</code></td>
+<td>Símbolos de paridad RS del bloque</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>flags</code></td>
+<td>RS activo, modo rombo, <em>ring interleave</em>, poda de anillos</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>redundancy_factor</code></td>
+<td>Factor de redundancia interna (1 = sin repetición)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>crc8</code></td>
+<td>CRC-8/MAXIM de bytes 0–6</td>
+</tr>
+</tbody>
+</table>
+<p>Los <strong>22 rombos</strong> reservados en §4.1 corresponden a $\lceil 64/3 \rceil$ posiciones necesarias para empaquetar estos 8 bytes como símbolos S2-octal en la malla.</p>
+<h4>3.5.3 Ring interleave</h4>
+<p>Sin interleave, un rayado o mancha local destruiría bytes contiguos del payload. En V8 el encoder ordena los rombos de datos por <strong>corona hexagonal</strong> de la <em>malla de datos</em> (interior → exterior) y, dentro de cada corona, reparte en <strong>round-robin sectorial</strong> (seis sectores del panal). Este <strong>orden lógico de escritura</strong> es distinto del <strong>anillo visual</strong> de §3.6 (el perímetro negro grueso usado para pose/detección de $N$). Los bytes codificados se escriben en el orden intercalado; el decoder reconstruye el stream lógico invirtiendo la permutación (<em>deinterleave</em>).</p>
+<p>Efecto práctico: un daño local en la imagen se traduce en errores <strong>dispersos</strong> en el bloque RS, no en un segmento contiguo del mensaje. El flag <code>ring_interleave</code> del header documenta que el símbolo usa este orden; en V8 canónico está siempre activo.</p>
+<h4>3.5.4 Reed–Solomon (nivel M)</h4>
+<p>Todos los experimentos de este artículo usan <strong>RS nivel M</strong> (~20 % de paridad sobre el bloque de datos). El codificador calcula el layout del bloque (datos + paridad) dentro del espacio disponible en rombos <strong>después</strong> de reservar header y anclas; el valor <code>rs_nsym</code> resultante se escribe en el header para que el decoder aplique la misma configuración sin parámetros externos.</p>
+<p>El nivel M equilibra capacidad y margen ante JPEG, desenfoque leve y errores de clasificación de trits —condiciones típicas del corpus sintético (§6.1) y del campo en papel (§6.2).</p>
+<h4>3.5.5 Padding determinista</h4>
+<p>Los rombos no ocupados por header, payload RS y paridad se rellenan con símbolos S2-octal <strong>pseudoaleatorios pero reproducibles</strong>. La semilla se deriva de <code>BLAKE2b-64("HEXV8_PAD" ‖ header ‖ datos ‖ N)</code> y un generador <strong>xorshift64*</strong> produce la secuencia de trits. Encoder y decoder generan el mismo padding dado el mismo contexto, sin almacenarlo explícitamente en el símbolo. Tras decodificar RS, el payload se trunca a <code>data_length</code> del header; el padding nunca se confunde con datos válidos.</p>
+<p>En conjunto, la contribución de §3.5 no es Reed–Solomon en abstracto, sino el <strong>co-diseño</strong> alfabeto con borrado nativo + orden inter-anillos + header autocontenido + padding verificable.</p>
+<h3>3.6 Materialización en tinta: spec visual v1.1</h3>
+<p>Tres estados ternarios deben sobrevivir a <strong>impresión monocroma</strong> sin depender de gris plano —la tinta suele fusionar grises medios. Convención de implementación (alineada al encoder/decoder de referencia):</p>
+<table>
+<thead>
+<tr>
+<th>Trit</th>
+<th>Representación visual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Negro sólido</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Textura <strong>checkerboard</strong> (cuadros alternos), no gris — <strong>spec visual v1.1</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blanco / fondo claro</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figura 4 — Alfabeto de trits (atlas visual)" src="/docs/assets/paper-figures/trit_atlas/sheet_trits_individuales.png"></p>
+<p><em>Figura 4.</em> Tres estados ternarios en orientación upright e inverted (atlas didáctico). El trit 1 se discrimina por textura, no por tono continuo.</p>
+<p><img alt="Figura 4c — Detalle del trit 1 (checkerboard) en símbolo impreso" src="/docs/assets/paper-figures/fig04_checkerboard_trit1.png"></p>
+<p><em>Figura 4c.</em> Recorte de un símbolo impreso: el checkerboard bajo captura real.</p>
+<p>Un <strong>anillo visual</strong> hexagonal en el perímetro sincroniza orientación y permite estimar <strong>N</strong> antes de leer el núcleo. Fuera del anillo, una <strong>zona tranquila</strong> (margen blanco) cumple la misma función que la quiet zone del QR. En el interior de ese margen, junto al borde interno del anillo, el encoder de referencia puede dibujar un <strong>patrón de timing de quiet zone</strong> opcional: seis segmentos rectangulares blanco/negro alternados por cara del hexágono. Es una banda de calibración binaria entre la malla ternaria de datos y el anillo visual—útil como pista auxiliar de alineación—, mientras que la pose, la escala y la estimación de $N$ siguen gobernadas por el anillo visual y el <em>ring ratio</em> (§5.2). La generación de imágenes usa <strong>300 DPI</strong>, escala <strong>100 %</strong> y supersample en raster (detalle en [18]).</p>
+<p>La capa visual no es decoración: el trit 1 debe ser legible por <strong>integral de imagen</strong> en la cámara, no solo por inspección humana.</p>
+<h3>3.7 Convergencia: protocolo HEX V8</h3>
+<p>Las capas anteriores convergen en <strong>HEX V8</strong> (<strong>H</strong>exagonal <strong>E</strong>ncoding e<strong>X</strong>tended), un <strong>códec visual bidireccional</strong>: convierte payload de bytes y valor <strong>N</strong> en imagen (PNG/PDF), y recupera bytes desde una fotografía.</p>
+<p><strong>Encode:</strong> header → RS sobre espacio disponible → bytes a S2-octal → <em>ring interleave</em> → padding → mapa de triángulos + anillo + margen → rasterización.</p>
+<p><strong>Decode:</strong> escala de grises y recorte → anillo visual → pose y <strong>N</strong> → <strong>homografía</strong> → muestreo de <strong>trits</strong> → rombos → <strong>deinterleave</strong> → RS con erasures → validación de header → truncado a <code>data_length</code>.</p>
+<p><strong>Invariantes:</strong> dentro de la capacidad de §4, <strong>roundtrip</strong> (<code>decode(encode(data)) = data</code>); ante corrupción irrecuperable, <strong>fail-fast</strong> (error explícito, sin decodificación silenciosa incorrecta).</p>
+<p><img alt="Figura 1 — Flujo bidireccional encode / decode V8" src="/docs/assets/paper-figures/fig01_encode_decode.png"></p>
+<p><em>Figura 1.</em> Pipeline lógico: encode (izquierda), canal físico (centro) y decode (derecha).</p>
+<p><img alt="Figura 2 — Símbolo HEX N=10 anotado" src="/docs/assets/paper-figures/fig02_symbol_n10_annotated.png"></p>
+<p><em>Figura 2.</em> Render de referencia (N=10, RS-M): anillo visual, zona tranquila (con segmentos de timing opcionales en el borde interno del anillo) y malla triangular.</p>
+<hr>
+<h2>4. Capacidad y escala física</h2>
+<p>Con el formato definido (§3), la pregunta de §2 se vuelve cuantitativa: <strong>¿cuántos bytes caben por N y a qué tamaño imprimir?</strong></p>
+<h3>4.1 Capacidad geométrica</h3>
+<p>La geometría depende del parámetro <strong>N</strong> (divisiones radiales de la malla hexagonal). Dos anillos exteriores se reservan para el <strong>anillo visual</strong> de sincronización; el núcleo interior queda para datos. Definimos el <strong>kernel de datos</strong>:</p>
+<p>$$K = N - 3$$</p>
+<p>equivalente a $L = N - 2_{\text{visual}} - 1$ anillos codificables en la malla bariocéntrica.</p>
+<p><strong>Paso 1 — triángulos codificables.</strong> Por sector (seis sectores en el panal), la teselación aporta $K^2$ triángulos de datos; en total:</p>
+<p>$$T_{\text{datos}} = 6K^2$$</p>
+<p><strong>Paso 2 — rombos.</strong> Cada rombo consume dos triángulos (upright + inverted adyacentes). Los rombos de datos se agrupan en tres bandas concéntricas de $K$ posiciones, con solapamiento de borde entre bandas:</p>
+<p>$$\text{rombos}_{\text{bruto}} = 3K(K-1)$$</p>
+<p><strong>Paso 3 — overhead fijo</strong> (en rombos, no en bytes):</p>
+<table>
+<thead>
+<tr>
+<th>Reserva</th>
+<th>Rombos</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header V8 empaquetado</td>
+<td>22</td>
+<td>$\lceil 8 \times 8 / 3 \rceil$ símbolos S2-octal</td>
+</tr>
+<tr>
+<td>Anclas de temporización</td>
+<td>3</td>
+<td>Sincronización geométrica (sectores 0, 2, 4)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>25</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 4 — bytes geométricos.</strong> Cada rombo de payload aporta 3 bits:</p>
+<p>$$\text{pay_rombos} = 3K(K-1) - 25$$</p>
+<p>$$\text{payload_bytes_geom} = \left\lfloor \frac{\text{pay_rombos} \times 3}{8} \right\rfloor$$</p>
+<p>Esta expresión es la <strong>capacidad geométrica</strong>: cota superior del espacio disponible para el bloque lógico (header + payload RS + padding) antes de considerar la eficiencia de empaquetado.</p>
+<p><strong>Ejemplo ($N=15$).</strong> $K=12 \Rightarrow \text{rombos}_{\text{bruto}} = 396$; menos 25 $\Rightarrow 371$ rombos de payload $\Rightarrow \lfloor 371 \times 3 / 8 \rfloor = 139$ B geométricos (Tabla 2).</p>
+<p><strong>Ejemplo ($N=10$).</strong> $K=7 \Rightarrow 101$ rombos de payload $\Rightarrow 37$ B geométricos; con RS-M el payload máximo medido es <strong>35 B</strong> (Tabla 2).</p>
+<h3>4.2 Escala en milímetros</h3>
+<p>La arista media del triángulo impreso (<strong>tri_mm</strong>) escala con el ancho flat-to-flat del hexágono (<strong>code_mm</strong>) y con N:</p>
+<p>$$\text{tri_mm} \approx \frac{\text{code_mm} \times 0{,}86}{N}$$</p>
+<p>El factor <strong>0,86</strong> relaciona el ancho del hexágono con la arista del triángulo en la malla bariocéntrica. Esta ligera desviación respecto al ideal geométrico ($\approx 0{,}866$) obedece estrictamente a la compensación de tolerancia de impresión (sangrado o inset visual áureo) en la generación del raster.</p>
+<p>Invertiendo la fórmula, dado un <strong>tri_mm</strong> objetivo y un N deseado, el tamaño de impresión queda:</p>
+<p>$$\text{code_mm} \approx \frac{\text{tri_mm} \times N}{0{,}86}$$</p>
+<p><strong>Umbral de campo.</strong> La lectura móvil fiable exigió empíricamente <strong>tri_mm ≳ 5 mm</strong> en N altos. Por debajo, la clasificación del trit 1 (checkerboard) y la estimación de N se degradan. El protocolo de evaluación (§6) fija tamaños de impresión por N (Tabla 2) para mantener ese umbral: N8/N10 a 58 mm (tri ≈ 6,2 / 5,0 mm), N12 a 70 mm y N15 a 85 mm (tri ≈ 5,0 / 4,9 mm).</p>
+<p><strong>Regla de lectura (anti-confusión).</strong> <strong>No</strong> leer la Tabla 2 como «N15 empaqueta 137 B en la misma caja de 58 mm que N10». A $\mathrm{tri_mm}$ emparejado, $\mathrm{code_mm}$ crece aproximadamente con $N$ (fórmula §4.2). N10@58 mm ≈ 35 B y N15@85 mm ≈ 137 B son puntos de <strong>misma legibilidad</strong>, no de misma huella. El QR de referencia ~37 B a ~25 mm (§6.4) es aún más pequeño; HEX cambia huella por payload bajo el umbral declarado.</p>
+<p><img alt="Figura 5 — Hoja de referencia de tamaños (campo N8–N15)" src="/docs/assets/paper-figures/fig05_size_reference.png"></p>
+<p><em>Figura 5.</em> Tamaños en milímetros validados en campo; impresión a 300 DPI, escala 100 %. <em>Cap.</em> es capacidad geométrica (Tabla 2); <em>Payload</em> es la cadena demo de esta hoja, no el máximo RS-M.</p>
+<h3>4.3 Capacidad útil con RS (nivel M)</h3>
+<p>La capacidad geométrica es una cota del espacio en rombos; el <strong>payload máximo en claro</strong> es menor porque el bloque RS ocupa paridad dentro del mismo espacio. Para cada N, el codificador de referencia busca el mayor <code>data_length</code> admisible con <strong>RS-M</strong> mediante búsqueda binaria sobre el espacio disponible (junio 2026); los resultados están en la columna <em>Datos máx.</em> de Tabla 2.</p>
+<p>La columna <em>Utilización</em> mide qué fracción de los <strong>trits codificables</strong> de la malla se ocupan al saturar el símbolo (datos + paridad RS + header empaquetado), no el cociente simple datos/geom. A mayor N, la utilización sube (~83 % en N8 → ~90 % en N15) porque el overhead fijo de 25 rombos se diluye.</p>
+<p><strong>Relación geométrica → útil.</strong> Aproximadamente, RS-M reserva ~20 % del bloque para paridad; la diferencia entre <em>Cap. geom.</em> y <em>Datos máx.</em> en Tabla 2 es pequeña en bytes porque el header ya está descontado en la fórmula de §4.1 y la paridad se ajusta al espacio restante. Detalle de layout por N en informe técnico [18].</p>
+<p><strong>Tabla 2.</strong> Capacidad por nivel N (RS-M)</p>
+<table>
+<thead>
+<tr>
+<th>N</th>
+<th>Cap. geom. (B)</th>
+<th>Datos máx. (B)</th>
+<th>Impresión (mm)</th>
+<th>tri ≈ (mm)</th>
+<th>Utilización (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>13</td>
+<td>11</td>
+<td>58</td>
+<td>6,2</td>
+<td>83</td>
+</tr>
+<tr>
+<td>9</td>
+<td>24</td>
+<td>22</td>
+<td>58</td>
+<td>5,5</td>
+<td>85</td>
+</tr>
+<tr>
+<td>10</td>
+<td>37</td>
+<td>35</td>
+<td>58</td>
+<td>5,0</td>
+<td>86</td>
+</tr>
+<tr>
+<td>11</td>
+<td>53</td>
+<td>51</td>
+<td>64</td>
+<td>5,0</td>
+<td>87</td>
+</tr>
+<tr>
+<td>12</td>
+<td>71</td>
+<td>69</td>
+<td>70</td>
+<td>5,0</td>
+<td>88</td>
+</tr>
+<tr>
+<td>13</td>
+<td>91</td>
+<td>89</td>
+<td>76</td>
+<td>5,0</td>
+<td>89</td>
+</tr>
+<tr>
+<td>14</td>
+<td>114</td>
+<td>112</td>
+<td>81</td>
+<td>5,0</td>
+<td>90</td>
+</tr>
+<tr>
+<td>15</td>
+<td>139</td>
+<td>137</td>
+<td>85</td>
+<td>4,9</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figura 3 — Payload máximo (RS-M) vs N" src="/docs/assets/paper-figures/fig03_capacity_vs_n.png"></p>
+<p><em>Figura 3.</em> Crecimiento de la capacidad útil con N (valores de Tabla 2).</p>
+<hr>
+<h2>5. Lector móvil: de la foto al payload</h2>
+<p>Un símbolo de mayor capacidad bajo el protocolo de §4–§6 <strong>no</strong> lo lee el escáner QR integrado en el teléfono. Hace falta un <strong>pipeline de decodificación móvil</strong> alineado con trits, anillo hexagonal y N variable. Esta sección describe la arquitectura del lector usado en la evaluación de campo (release <strong>0.4.7</strong>, julio 2026)—el baseline de §5.6—, complementaria al códec de §3.7.</p>
+<h3>5.1 Por qué hace falta una aplicación dedicada</h3>
+<p>El decode móvil reutiliza componentes estándar [8–12] —escala de grises, homografía, Reed–Solomon— pero el supuesto QR (<strong>módulo binario</strong> sobre cuadrícula, finders rectangulares, versión discreta) no traslada directamente a HEX. El lector dedicado añade cinco capacidades que un pipeline QR no posee:</p>
+<ol>
+<li><strong>Detección del anillo visual</strong> hexagonal y estimación de escala antes de leer datos.</li>
+<li><strong>Resolución de N</strong> —el símbolo puede ser N8, N10, N12 o N15 en la misma sesión.</li>
+<li><strong>Clasificación ternaria</strong> por triángulo, incluida la textura checkerboard del trit 1 (§3.6).</li>
+<li><strong>Deinterleave</strong> por coronas según el orden de escritura V8 (§3.5.3).</li>
+<li><strong>Adaptación a escena</strong> —papel, monitor con moiré, N15 denso— sin agotar batería en un único barrido costoso.</li>
+</ol>
+<p>Sin estas piezas no es posible recuperar el payload ni siquiera con el motor de decode correcto: el cuello de botella en campo no es la capa RS, sino <strong>geometría + clasificación + política de reintentos</strong>.</p>
+<h3>5.2 Captura y región de interés</h3>
+<p>La UI fija un recuadro de encuadre; al capturar, se recorta una <strong>región de interés</strong> (ROI) del fotograma con corrección de bias vertical empírico (monitor: el símbolo suele quedar ligeramente bajo el centro óptico si no se compensa). Antes del decode se calculan métricas de escena —contraste local, varianza, dispersión de intensidades— usadas por el enrutador de §5.4.</p>
+<p>Cada intento parte de una imagen en escala de grises. El primer paso geométrico es <strong>detectar el anillo visual</strong>: barrido radial desde el centro estimado buscando la banda oscura del perímetro hexagonal. Del anillo se obtiene el centro refinado, la orientación y el <strong>ring ratio</strong> —cociente entre radios exterior e interior— que correlaciona con <strong>N</strong> (p. ej. N10 ≈ 0,874, N15 ≈ 0,887). Si el ratio es ambiguo, el lector conserva varios candidatos de N en lugar de fijar uno erróneo. Cuando el patrón de timing de quiet zone de §3.6 está presente, el pipeline puede puntuar el acuerdo de segmentos como <strong>comprobación auxiliar opcional</strong> de alineación radial; no sustituye la detección del anillo ni condiciona el éxito del decode.</p>
+<h3>5.3 Núcleo geométrico por intento</h3>
+<p>Tras detectar el anillo, el pipeline ejecuta el núcleo compartido con §3.7:</p>
+<ol>
+<li><strong>Homografía</strong> — rectifica el plano del símbolo hacia malla canónica, corrigiendo perspectiva y rotación (anclas en sectores 0, 2, 4).</li>
+<li><strong>Preprocesado</strong> — variantes de contraste, desenfoque (<em>blurred</em>) y escalado según la etapa S0/S1/S2 (§5.4).</li>
+<li><strong>Muestreo de trits</strong> — integral por triángulo rectificado; trit 1 por checkerboard (§3.6).</li>
+<li><strong>Rombos y deinterleave</strong> — símbolos S2-octal; inversión del <em>ring interleave</em> (§3.5.3).</li>
+<li><strong>RS + header</strong> — GF(256) con erasures en (1,1); validación del header V8 (Tabla 1) y truncado a <code>data_length</code>.</li>
+</ol>
+<p>La latencia suma <strong>captura</strong> (~1,4–2,0 s) y <strong>decode</strong> (decenas de ms a ~3,5 s en N altos, §6.2). Los reintentos multiplican el decode, no la captura.</p>
+<h3>5.4 Enrutador de perfil y etapas S0 → S1 → S2</h3>
+<p>Antes de escalar el coste, el lector <strong>0.4.7</strong> clasifica la escena (<code>ProfileRouter</code>). Ante duda en papel, la ruta conservadora es <strong>perfil papel</strong> (más rápida).</p>
+<table>
+<thead>
+<tr>
+<th>Perfil</th>
+<th>Cuándo se elige</th>
+<th>Etapas disponibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>papel</strong></td>
+<td>Baja probabilidad de moiré; textura impresa</td>
+<td>S0 → S1</td>
+</tr>
+<tr>
+<td><strong>pantalla</strong></td>
+<td>Alta varianza, alto contraste, moiré</td>
+<td>S1 → S2</td>
+</tr>
+<tr>
+<td><strong>denso</strong></td>
+<td>N15 en pill o en <code>sessionNHint</code></td>
+<td>S1 → S2</td>
+</tr>
+<tr>
+<td><strong>desconocido</strong></td>
+<td>Escena no clasificada con confianza</td>
+<td>S0 → S1 → S2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabla 7.</strong> Comportamiento por perfil y etapa (resumen)</p>
+<table>
+<thead>
+<tr>
+<th>Perfil</th>
+<th>S0</th>
+<th>S1</th>
+<th>S2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>papel</strong></td>
+<td><em>Fast scan</em>, pocos reintentos</td>
+<td>Más combos; N fijado si hay pista</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>pantalla</strong></td>
+<td>—</td>
+<td><em>Blurred</em> + <em>denseScanLite</em> si sesión ≥ N12 (2 variantes)</td>
+<td><em>Moire scan</em></td>
+</tr>
+<tr>
+<td><strong>denso</strong></td>
+<td>—</td>
+<td><em>Dense scan</em>; abort tras 2 <em>hatch_fail</em> en N15</td>
+<td>Moiré + denso</td>
+</tr>
+<tr>
+<td><strong>desconocido</strong></td>
+<td>Rápido</td>
+<td>Combos estándar</td>
+<td>Moiré</td>
+</tr>
+</tbody>
+</table>
+<p>Las etapas <strong>S0–S2</strong> son <strong>políticas de coste</strong>: más combos de preprocesado y más reintentos por candidato de N. En papel, la mayoría de aciertos ocurre en <strong>S0</strong>; en monitor N15, S1 acotado a <strong>dos variantes</strong> evitó barridos de 12–23 s de releases anteriores. Muchos <em>hatch_fail</em> por encuadre bajo no agotan S2: el operador reencuadra (<em>centerDy</em> ≈ −14 px en aciertos N15, §6.2).</p>
+<h3>5.5 Resolución de N y pista de sesión</h3>
+<p>En modo <strong>Auto</strong>, la resolución de N sigue este orden:</p>
+<ol>
+<li><strong>Pill N</strong> — N fijo en UI → un solo candidato.</li>
+<li><strong><code>sessionNHint</code></strong> — último N acertado; cadena <strong>8 → 10 → 12 → 15</strong>; tras N12, <strong>N15 se prueba primero</strong>.</li>
+<li><strong>Ring ratio</strong> — estimación desde el anillo; hasta cuatro candidatos si hay ambigüedad.</li>
+<li><strong>Expansión por etapa</strong> — más candidatos en S1/S2 si S0 falló.</li>
+</ol>
+<p>Con <code>sessionNHint ≥ 12</code> en <strong>pantalla</strong>, el lector puede fijar N desde la sesión y desactivar <em>autoScan</em> para N15 —validado en monitor 4/4 (§6.3).</p>
+<h3>5.6 Baseline evaluado</h3>
+<p>La campaña de campo de julio 2026 usó el lector <strong>Android</strong> (release <strong>0.4.7</strong>), instalado como <strong>APK de distribución libre</strong> en el dispositivo de referencia: <code>ProfileRouter</code> activo, resolución de $N$ antes del barrido, <code>sessionNHint</code> persistente, S1 acotado en monitor N15 y warp canónico experimental <strong>desactivado</strong>. Las métricas de §6 (<em>centerDy</em>, <code>decodeMs</code>, perfil, etapa, candidatos de $N$ y motivo de fallo) se registraron sobre ese build durante las sesiones de protocolo.</p>
+<p><img alt="Figura 6 — Pipeline lector móvil 0.4.7" src="/docs/assets/paper-figures/fig06_reader_pipeline.png"></p>
+<p><em>Figura 6.</em> Pipeline de decodificación del baseline evaluado (ROI → perfil → resolución de $N$ → etapas S0→S2 → núcleo geométrico → payload).</p>
+<hr>
+<h2>6. Evaluación experimental</h2>
+<p>Esta sección responde a la pregunta de §2 sobre el artefacto construido en §3–§5. Los experimentos comparten un <strong>protocolo común</strong> (§6.0); luego se reportan tres ejes: regresión sintética (§6.1), campo en papel (§6.2) y campo en monitor (§6.3), cerrando con la comparación acotada frente a QR (§6.4). Salvo indicación contraria, las métricas de campo móvil (<em>centerDy</em>, <code>decodeMs</code>, perfil/etapa) provienen del baseline <strong>0.4.7</strong> de §5.6.</p>
+<h3>6.0 Protocolo de evaluación</h3>
+<p><strong>Tabla 6.</strong> Parámetros fijos del protocolo</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Valor</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reed–Solomon</td>
+<td>Nivel <strong>M</strong></td>
+<td>~20 % paridad (§3.5.4)</td>
+</tr>
+<tr>
+<td>Impresión</td>
+<td><strong>300 DPI</strong>, escala <strong>100 %</strong></td>
+<td>Sin «ajustar a página»</td>
+</tr>
+<tr>
+<td>Soporte principal</td>
+<td>Papel blanco</td>
+<td>Hoja Fig. 5</td>
+</tr>
+<tr>
+<td>Distancia captura</td>
+<td><strong>25–35 cm</strong></td>
+<td>Brazo extendido, vista perpendicular</td>
+</tr>
+<tr>
+<td>Dispositivo referencia</td>
+<td>Redmi Note 9 Pro</td>
+<td>Único hardware documentado; <strong>Android</strong> vía <strong>APK de distribución libre</strong></td>
+</tr>
+<tr>
+<td>Plataforma lector</td>
+<td><strong>Android</strong></td>
+<td>Instalación sideload del APK (GitHub Releases); sin tienda propietaria en el protocolo de §6</td>
+</tr>
+<tr>
+<td>Cámara principal</td>
+<td><strong>64 MP</strong>, <strong>f/1,9</strong>, <strong>26 mm</strong> eq., sensor <strong>1/1,72″</strong>, píxel <strong>0,8 µm</strong></td>
+<td>Variante global [19]; otras regiones usan 48 MP</td>
+</tr>
+<tr>
+<td>Pipeline captura</td>
+<td>ROI del visor → JPEG → <strong>~560 px</strong> ancho</td>
+<td>Antes del decode (APK 0.4.7)</td>
+</tr>
+<tr>
+<td>Resolución en buffer decode</td>
+<td><strong>~10–12 px/arista</strong> (N15, empírico)</td>
+<td>Radio anillo 126–164 px (§6.2)</td>
+</tr>
+<tr>
+<td>Canal monitor</td>
+<td>ThinkPad <strong>L14</strong>, panel integrado 14″</td>
+<td>WUXGA <strong>1920×1200</strong>, IPS; visor a escala 100 %</td>
+</tr>
+<tr>
+<td>Paso de píxel panel</td>
+<td>$d_{\text{display}} \approx 0{,}157$ mm</td>
+<td>$\sqrt{1920^2+1200^2}/14/25{,}4$; ThinkPad L14 WUXGA [20]</td>
+</tr>
+<tr>
+<td>px/arista en pantalla (N15)</td>
+<td>$p_{\text{tri,display}} \approx 31$</td>
+<td>$\text{tri_mm}/d_{\text{display}}$; antes de captura</td>
+</tr>
+<tr>
+<td>Sensibilidad moiré</td>
+<td>$f_{\text{display}} \approx 6{,}4$/mm vs $f_{\text{cam}} \approx 2{,}2$/mm</td>
+<td>$f=1/d$; ver §6.3</td>
+</tr>
+<tr>
+<td>Lector</td>
+<td>APK <strong>0.4.7</strong></td>
+<td>Julio 2026; baseline de este paper</td>
+</tr>
+<tr>
+<td>Modo de sesión</td>
+<td><strong>Auto</strong> N8→N15</td>
+<td>Secuencial tras cada acierto</td>
+</tr>
+<tr>
+<td>Criterio de legibilidad</td>
+<td><strong>tri_mm ≳ 5 mm</strong></td>
+<td>Tamaños Tabla 2 / Fig. 5</td>
+</tr>
+<tr>
+<td>Métrica de éxito (papel)</td>
+<td><strong>4/4 OK</strong> secuencial</td>
+<td>N8, N10, N12, N15 en una sesión</td>
+</tr>
+<tr>
+<td>Métrica de latencia</td>
+<td><code>decodeMs</code></td>
+<td>Sin incluir tiempo de captura UI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedimiento de campo (papel).</strong> (1) Imprimir la hoja de referencia (Fig. 5). (2) Instalar el APK 0.4.7 usado en este estudio. (3) Abrir modo <strong>Auto</strong>; tras cada lectura correcta, avanzar al siguiente N sin reiniciar la sesión. (4) Encuadrar el símbolo activo dentro del recuadro; en N15, centrar el código ligeramente <strong>por encima</strong> del centro óptico (<em>centerDy</em> ≈ −14 px en aciertos).</p>
+<p><strong>Criterios de fallo aceptables vs bloqueantes.</strong> Un miss por <em>hatch_fail</em> o header inválido con <em>centerDy</em> positivo se clasifica como <strong>error de encuadre</strong>, no como regresión del códec. Un fallo de RS con símbolo bien centrado y perfil correcto sería bloqueante; no se observó en las sesiones jul 2026.</p>
+<p><strong>Resolución angular (paraxial).</strong> La discriminación del trit checkerboard (§3.6) y el umbral tri_mm ≈ 5 mm (§4.2) dependen de la distancia de captura $D$ y de la resolución angular óptica —distancia focal efectiva $f$ y paso de píxel del sensor $p$ (Tabla 6). Bajo un modelo pinhole en régimen paraxial (distorsión despreciable cerca del eje óptico), la arista del triángulo proyectada en el sensor ocupa</p>
+<p>$$p_{\text{tri,sensor}} \approx \frac{\text{tri_mm}}{D} \cdot \frac{f}{p}$$</p>
+<p>(con longitudes en mm). Se omiten términos de tambor/cojín: dentro del ROI del visor el desplazamiento radial es pequeño frente a $D$, y los polinomios típicos de gran angular móvil son de segundo orden cuando $|r|\lesssim 0{,}3\,D$.</p>
+<p><strong>Del fotograma completo al buffer de decode.</strong> Con tri_mm ≈ 4,9 mm, $D\approx 30$ cm, $f\approx 5{,}6$ mm (equivalente 26 mm sobre sensor 1/1,72″) y $p\approx 1{,}6$ µm (binning 4:1 habitual en esta clase de sensor), el orden de magnitud en fotograma completo es ~50 px/arista antes del recorte. El pipeline recorta el ROI y lo redimensiona a ~560 px de ancho; en aciertos N15 se reportan radios de anillo 126–164 px, es decir ~10–12 px/arista en el buffer —margen estrecho para la textura del trit 1, alineado con el umbral operativo. La degradación periférica en N15 se trata como límite de campo (§7.1), no como corrección dentro de esta estimación. Dispositivos con distinto $f/p$ o rango dinámico pueden caer por debajo de ese margen sin cambiar el símbolo impreso, lo que motiva la matriz multidispositivo (§7.1, §8.4).</p>
+<h3>6.1 Corpus sintético</h3>
+<p>El corpus de regresión de laboratorio consta de <strong>15 imágenes PNG</strong> generadas a partir de un símbolo base (<strong>N=8</strong>, payload <code>Hola HEX</code>) con degradaciones controladas:</p>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Variantes</th>
+<th>Qué estresa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>baseline</em></td>
+<td>imagen prístina</td>
+<td>roundtrip ideal</td>
+</tr>
+<tr>
+<td><em>jpeg</em></td>
+<td>calidad 92 / 80 / 70</td>
+<td>compresión tipo captura móvil</td>
+</tr>
+<tr>
+<td><em>blur</em></td>
+<td>gaussiano ligero / medio</td>
+<td>desenfoque óptico</td>
+</tr>
+<tr>
+<td><em>contrast</em></td>
+<td>0,65× / 1,35×</td>
+<td>exposición y toner</td>
+</tr>
+<tr>
+<td><em>shift</em></td>
+<td>±24 px, +40 px vertical</td>
+<td>encuadre descentrado (<em>centerDy</em>)</td>
+</tr>
+<tr>
+<td><em>perspective</em></td>
+<td>rotación 8° / 12°</td>
+<td>foto inclinada</td>
+</tr>
+<tr>
+<td><em>resize</em></td>
+<td>480 / 560 px</td>
+<td>escala del pipeline móvil</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado:</strong> los motores de decode en <strong>Python</strong> y <strong>TypeScript</strong> recuperan <strong>15/15</strong> payloads esperados (<code>npm run benchmark:matrix</code>, junio 2026). La latencia p95 del motor Python es ≈ <strong>898 ms</strong> por imagen en el hardware de laboratorio. Este corpus valida el códec <strong>antes</strong> del ruido específico de impresión y de la UI de captura.</p>
+<h3>6.2 Campo en papel</h3>
+<p>Sesiones julio 2026 con el APK 0.4.7 —<strong>Android</strong>, distribución libre de APK— sobre la hoja de Fig. 5, capturadas con el Redmi Note 9 Pro de Tabla 6.</p>
+<p><strong>Tabla 3.</strong> Resultados en papel</p>
+<table>
+<thead>
+<tr>
+<th>N</th>
+<th>mm</th>
+<th>tri ≈ (mm)</th>
+<th>Resultado</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8–15 (secuencial)</td>
+<td>hoja escalada</td>
+<td>≥ 4,9</td>
+<td><strong>4/4 OK</strong></td>
+<td>sesión jul 2026</td>
+</tr>
+<tr>
+<td>8</td>
+<td>58</td>
+<td>6,2</td>
+<td>OK</td>
+<td>histórico 0.3.0</td>
+</tr>
+<tr>
+<td>10</td>
+<td>58</td>
+<td>5,0</td>
+<td>OK</td>
+<td>histórico 0.3.0</td>
+</tr>
+<tr>
+<td>12</td>
+<td>70</td>
+<td>5,0</td>
+<td>OK</td>
+<td>histórico 0.3.0</td>
+</tr>
+<tr>
+<td>15</td>
+<td>85</td>
+<td>4,9</td>
+<td>OK</td>
+<td>histórico 0.3.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Telemetría de la sesión confirmatoria (2026-07-04).</strong> Cuatro lecturas correctas secuenciales N8→N15; cinco misses adicionales, todos al intentar N15 con el símbolo <strong>bajo</strong> el centro del recuadro (<em>centerDy</em> +11…+26 px): tres <em>garbage_header</em>, un <em>crc_fail</em> y un <em>hatch_fail</em>. N15 exitoso: <em>decodeMs</em> 2955 ms, <em>centerDy</em> −14 px, etapa <strong>S0</strong>, perfil <strong>papel</strong>. Rango de <em>decodeMs</em> en aciertos: <strong>116–3524 ms</strong> (p95 marginal 3524 ms en N12, por encima del umbral de regresión de 3 s pero sin fallo funcional).</p>
+<p><strong>Interpretación.</strong> El formato V8 es estable en papel; el cuello de botella operativo es <strong>encuadre en N15</strong>, coherente con la mayor densidad visual y el área activa del símbolo. La <strong>Figura 9</strong> (columna izquierda) documenta lecturas exitosas N8→N15 en las condiciones de la hoja impresa.</p>
+<h3>6.3 Campo en monitor (secundario)</h3>
+<p>El canal monitor es <strong>secundario</strong>: valida el perfil <em>pantalla</em> del lector (§5.4) bajo moiré y reflejos, pero el papel sigue siendo el sustrato de demostración principal. La Figura 9 (columna derecha) muestra lecturas exitosas en monitor para los mismos niveles N que en papel.</p>
+<p><strong>Moiré (por qué es menos reproducible que el papel).</strong> El moiré digital es un batido entre la frecuencia espacial del panel $f_{\text{display}}=1/d_{\text{display}}$ y la densidad de muestreo del pipeline $f_{\text{cam}}=p_{\text{tri,decode}}/\mathrm{tri_mm}$ tras el resize del ROI (§6.0). En el panel ThinkPad L14 WUXGA documentado [20], $d_{\text{display}}\approx 0{,}157$ mm y $f_{\text{display}}\approx 6{,}4$ ciclos/mm. Mostrado a los mismos milímetros físicos que Fig. 5 (zoom 100 %), N15 da $p_{\text{tri,display}}\approx 31$ px/arista en el panel y, tras el pipeline, $p_{\text{tri,decode}}\approx 11$ px/arista ($f_{\text{cam}}\approx 2{,}2$ ciclos/mm). Cuando armónicos de la malla o del checkerboard se acercan al límite de Nyquist $f_{\text{cam}}/2$, el batido aliasa la textura del trit 1 y eleva <em>hatch_fail</em> —distinto de un fallo RS. Paneles con otro $d_{\text{display}}$ cambian ese acoplamiento; por eso el monitor no es intercambiable con el papel.</p>
+<p>Las sesiones golden <strong>2026-07-03</strong> y <strong>2026-07-04</strong> usaron este L14 como única pantalla de prueba. N8/N10 en monitor requirieron ~6–7 s de decode (<em>pantalla</em>, S1 con moiré) antes de fijar <code>sessionNHint</code>; N12/N15 exitosos bajaron a 136–1333 ms con encuadre fino. Sesión 2026-07-03: <strong>4/4 OK</strong>, N15 en 1333 ms (<em>blurred</em>, dos variantes, solo S1). Confirmación 2026-07-04: <strong>4/4 OK</strong> tras ocho misses de encuadre; N15 en 458 ms con <em>centerDy</em> ≈ −15 px. Los misses vuelven a seguir desplazamiento vertical positivo (+1…+16 px). Con <code>sessionNHint ≥ 12</code>, S1 se acota a dos variantes y se evitan los barridos de 12–23 s de releases anteriores.</p>
+<p><img alt="Figura 9 — Lecturas de campo (papel y monitor)" src="/docs/assets/paper-figures/fig09_field_panel.png"></p>
+<p><em>Figura 9.</em> Capturas de la app lectora <strong>Android</strong> (APK 0.4.7, distribución libre; Redmi Note 9 Pro, jul 2026): por fila, <strong>papel</strong> (izquierda, hoja Fig. 5) y <strong>monitor</strong> (derecha, ThinkPad L14 WUXGA, perfil <em>pantalla</em>) para N8, N10, N12 y N15. Cada panel muestra decodificación exitosa bajo el protocolo de §6.0. Los banners en pantalla reportan bytes de capacidad geométrica (Tabla 2); los máximos útiles RS-M son 11/35/69/137 B.</p>
+<h3>6.4 Comparación acotada con QR</h3>
+<p><strong>Narrativa que esta sección rechaza.</strong> HEX V8 <strong>no</strong> se presenta aquí como «la evolución hexagonal del QR», como sucesor drop-in, ni como un formato simplemente «3,7× más denso». La razón $137/37$ que aparece al poner N15 junto al QR de referencia ~25 mm es un <strong>ratio de payload bajo protocolo</strong> (misma banda de $\mathrm{tri_mm}$ / RS-M declarado), no un concurso de densidad a igual tamaño. El eje decisivo es <strong>bytes útiles a legibilidad móvil comparable</strong>; los bits/mm² de huella completa y la universalidad de ecosistema quedan deliberadamente en segundo plano (§7.3, Tabla 5b).</p>
+<p><strong>Tabla 4</strong> contrasta el modelo de canal de las simbologías binarias típicas de §1 con HEX V8 (Figura 8d). <strong>Tabla 5</strong> resume payloads de referencia bajo el protocolo de campo (Figura 8). <strong>Tabla 5b</strong> añade área hexagonal impresa y densidad útil en bits/mm² (Figura 8c).</p>
+<p><strong>Tabla 4.</strong> Modelo cualitativo: simbologías ISO típicas vs HEX V8</p>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>QR / Data Matrix / Aztec</th>
+<th>HEX V8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alfabeto por elemento</td>
+<td>Binario (módulo)</td>
+<td>Ternario (trit por triángulo)</td>
+</tr>
+<tr>
+<td>Topología</td>
+<td>Cuadrícula</td>
+<td>Malla triangular hexagonal</td>
+</tr>
+<tr>
+<td>Unidad de codificación</td>
+<td>Módulo</td>
+<td>Rombo S2-octal (3 bits)</td>
+</tr>
+<tr>
+<td>Sincronización</td>
+<td>Finders, bullseye, perímetro</td>
+<td>Anillo visual hexagonal</td>
+</tr>
+<tr>
+<td>Corrección</td>
+<td>RS GF(256)</td>
+<td>RS GF(256) + erasures nativos (1,1)</td>
+</tr>
+<tr>
+<td>Escala de densidad</td>
+<td>Versión / tamaño de módulo</td>
+<td>Parámetro $N$ (divisiones radiales de malla) + tamaño mm</td>
+</tr>
+<tr>
+<td>Lector</td>
+<td>Universal (smartphone)</td>
+<td>Aplicación dedicada</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabla 5.</strong> Payload de referencia (protocolo de campo, tamaños de la hoja de referencia)</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Tamaño impreso</th>
+<th>Payload útil (RS-M)</th>
+<th>tri ≈ (mm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QR demo</td>
+<td>~25 mm</td>
+<td>~37 B</td>
+<td>—</td>
+</tr>
+<tr>
+<td>HEX N10</td>
+<td>58 mm</td>
+<td>35 B</td>
+<td>5,0</td>
+</tr>
+<tr>
+<td>HEX N15</td>
+<td>85 mm</td>
+<td><strong>137 B</strong></td>
+<td>4,9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabla 5b.</strong> Densidad útil y área (HEX V8 RS-M vs QR de referencia §6.4)</p>
+<p>Área del hexágono con ancho <em>flat-to-flat</em> (W): (A = \frac{\sqrt{3}}{2} W^2). Densidad: (8 \times \text{payload (B)} / A). El QR de referencia usa caja cuadrada (W\times W) como cota de área (no es hexágono).</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>(W) (mm)</th>
+<th>Elemento mín.</th>
+<th>(A) (mm²)</th>
+<th>Payload (B)</th>
+<th>bits/mm²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HEX N8</td>
+<td>58</td>
+<td>tri ≈ 6,2</td>
+<td>≈ 2913</td>
+<td>11</td>
+<td>≈ 0,030</td>
+</tr>
+<tr>
+<td>HEX N10</td>
+<td>58</td>
+<td>tri ≈ 5,0</td>
+<td>≈ 2913</td>
+<td>35</td>
+<td>≈ 0,096</td>
+</tr>
+<tr>
+<td>HEX N12</td>
+<td>70</td>
+<td>tri ≈ 5,0</td>
+<td>≈ 4243</td>
+<td>69</td>
+<td>≈ 0,130</td>
+</tr>
+<tr>
+<td>HEX N15</td>
+<td>85</td>
+<td>tri ≈ 4,9</td>
+<td>≈ 6257</td>
+<td>137</td>
+<td>≈ 0,175</td>
+</tr>
+<tr>
+<td>QR ref.</td>
+<td>~25</td>
+<td>módulo fino</td>
+<td>≈ 625 (caja)</td>
+<td>~37</td>
+<td>≈ 0,47</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cómo no leer las Tablas 5–5b.</strong> Una razón como $137/37\approx 3{,}7$ es un <strong>ratio de payload bajo el protocolo declarado</strong>, no evidencia de que HEX N15 ocupe los mismos milímetros que el QR de referencia, ni de que HEX gane en bits/mm² de huella completa (la Tabla 5b muestra lo contrario para el área del hexágono completo). No hay un «QR N15 equivalente» en este manuscrito: el punto QR es un <strong>demo de campo a ~25 mm</strong>, mientras HEX N15 es un símbolo de <strong>85 mm</strong> a $\mathrm{tri_mm}\approx 5\,\mathrm{mm}$.</p>
+<p>La comparación justa no es solo «más bytes en menos milímetros», sino <strong>más bytes manteniendo legibilidad móvil</strong>. El indicador operativo adoptado es la arista del triángulo impreso (<strong>tri_mm ≈ 5 mm</strong>, §4.2). Bajo esa restricción, un <strong>QR de referencia</strong> impreso a ~25 mm en la misma banda de distancia de captura (§6.0) transporta ~37 B de payload útil en las hojas de comparación de campo (punto demo acotado, no una afirmación sobre todas las versiones o niveles ECC del QR). HEX N10 a tri ≈ 5 mm (~58 mm de ancho flat-to-flat) alcanza <strong>35 B</strong> útiles (RS-M) —el mismo orden de magnitud—; <strong>HEX N15</strong> a tri ≈ 5 mm (~87 mm teórico; 85 mm en campo) alcanza <strong>137 B</strong> (Figura 8b). La Tabla 5 recoge los tamaños <strong>validados en campo</strong> (Fig. 5): en N15 el protocolo usa 85 mm (tri ≈ 4,9 mm), ligeramente por debajo del umbral nominal pero dentro del margen observado (§6.2). HEX <strong>no reduce</strong> la huella en mm respecto a un QR pequeño: <strong>cambia un hexágono impreso más grande por más payload al escalar $N$</strong>, manteniendo la legibilidad de arista cerca del umbral declarado. Frases como «capacidad superior» o «mayor densidad» son, por tanto, inseguras si ese trade-off no se dice en la misma frase.</p>
+<p><strong>Lectura de la Tabla 5b.</strong> Hay que distinguir dos lecturas de densidad. <strong>(i) Densidad de huella completa</strong> usa el área hexagonal impresa $A(W)$ y da ≈0,175 bits/mm² para HEX N15 a 85 mm —inferior al QR de referencia a ~25 mm (≈0,47 bits/mm²), porque la huella HEX incluye anillo y zona tranquila. <strong>(ii) Densidad del núcleo de trits</strong> restringe el área a (W_K=W\cdot K/N) (solo malla codificable) y eleva N15 a ≈0,27 bits/mm²; esa cifra es una <strong>métrica auxiliar del alfabeto</strong>, no un claim de marketing de etiqueta. Bajo el protocolo declarado, la comparación decisiva <strong>no</strong> es «más bits por mm² a cualquier escala», sino <strong>más bytes útiles a legibilidad comparable</strong> (tri_mm ≈ 5 mm), con una densidad HEX de huella completa que aún <strong>crece con N</strong> a tri casi fijo (≈0,030 → ≈0,175 bits/mm² de N8 a N15; Figura 3, Figura 8b). Data Matrix [2] comparte el alfabeto binario por módulo de Tabla 4; no se tabula aquí un punto ISO concreto bajo el mismo protocolo de campo, para no mezclar capacidades nominales de versión con la referencia QR ya acotada en §6.4.</p>
+<p><img alt="Figura 8d — Modelo de canal: familia ISO vs HEX V8" src="/docs/assets/paper-figures/fig08d_channel_model.png"></p>
+<p><em>Figura 8d.</em> Contraste cualitativo del modelo de canal (Tabla 4): QR / Data Matrix / Aztec comparten alfabeto binario y topología de cuadrícula; HEX V8 cambia alfabeto, malla y lector.</p>
+<p><img alt="Figura 8 — Payload útil bajo condiciones declaradas" src="/docs/assets/paper-figures/fig08_hex_vs_qr.png"></p>
+<p><em>Figura 8.</em> Payload útil (RS-M) bajo el protocolo de campo (Tabla 5): QR de referencia ~25 mm frente a HEX N10 y N15.</p>
+<p><img alt="Figura 8a — Payload vs tamaño impreso" src="/docs/assets/paper-figures/fig08_payload_vs_size.png"></p>
+<p><em>Figura 8a.</em> Relación entre bytes útiles (RS-M) y tamaño del símbolo (Tabla 2); punto QR de referencia incluido.</p>
+<p><img alt="Figura 8b — Payload a tri ≈ 5 mm" src="/docs/assets/paper-figures/fig08b_payload_tri5mm.png"></p>
+<p><em>Figura 8b.</em> Comparación a legibilidad comparable (misma arista de triángulo impresa $\approx 5\,\mathrm{mm}$)—<strong>no</strong> a igual ancho total.</p>
+<p><img alt="Figura 8c — Densidad de huella completa" src="/docs/assets/paper-figures/fig08c_density_bits_mm2.png"></p>
+<p><em>Figura 8c.</em> Densidad útil de huella completa (bits/mm²; Tabla 5b). El QR de referencia a ~25 mm es más denso por área; HEX gana en <strong>bytes</strong> a tri comparable al escalar $N$.</p>
+<hr>
+<h2>7. Limitaciones</h2>
+<p>Las evidencias de §6 apoyan la pregunta de §2 bajo reglas explícitas; fuera de ese marco el formato y el lector no deben extrapolarse sin nuevas mediciones.</p>
+<h3>7.1 Alcance experimental</h3>
+<p>La evaluación de campo documenta <strong>un solo dispositivo</strong> (Redmi Note 9 Pro, Tabla 6) y <strong>un build</strong> del lector <strong>Android</strong> (APK <strong>0.4.7</strong>, §5.6), instalado mediante <strong>distribución libre de APK</strong>. No hay matriz de hardware entre OEM, ni un segundo sistema operativo, ni un barrido controlado de iluminación. El corpus sintético <strong>15/15</strong> (§6.1) valida el códec ante degradaciones de imagen, pero <strong>no sustituye</strong> la variabilidad de impresión, el encuadre ni la latencia de la UI móvil (§6.2–6.3). Los resultados de campo son, por tanto, una <strong>prueba de concepto</strong> sobre ese baseline: sensores con menor rango dinámico, pipelines ISP distintos o mayor distorsión gran angular pueden desplazar la detección de anillo, el <em>hatch</em> y el <code>decodeMs</code>. La generalización exige la matriz multidispositivo priorizada en §8.4.</p>
+<p><strong>Techo empírico vs. hardware moderno e industrial.</strong> Las métricas de §6.2–6.3 acotan el baseline Redmi Note 9 Pro; <strong>no</strong> agotan el techo teórico del formato ni del pipeline. Se dejan abiertas —como trabajo futuro o vía de colaboración de investigación— estimaciones y validaciones de lectura y velocidad en hardware moderno (sensores de mayor resolución, ópticas dedicadas, iluminación controlada) y en entornos industriales (cámaras fijas, distancia y ángulo nominalizados, sustratos estandarizados), donde el modelo paraxial de §6.0 sugiere márgenes de resolución angular y latencias potencialmente superiores a los observados aquí, sin modificar el códec.</p>
+<p><strong>Modelo paraxial frente a óptica periférica.</strong> No deben confundirse dos capas. <strong>(1) Paraxial / ROI central.</strong> El modelo de proyección de §6.0 (pinhole, pequeño offset radial) relaciona arista del triángulo, distancia $D$, focal $f$ y paso $p$ dentro del recuadro del visor donde se pretende situar el símbolo. Explica el orden de ~10–12 px/arista en el buffer de decode y permite estimar $p_{\text{tri,sensor}}$ en otros dispositivos. <strong>(2) Degradación periférica / fuera de eje.</strong> Cuando el anillo N15 de 85 mm se desplaza hacia la periferia de la lente, crecen la aberración radial y la curvatura de campo; ese régimen queda <strong>fuera</strong> del <em>sweet spot</em> paraxial y se trata como <strong>límite de hardware/óptica de campo</strong>, no como evidencia de fragilidad del códec.</p>
+<p><strong>Tolerancia angular del encuadre.</strong> La telemetría <em>centerDy</em> (desplazamiento vertical del centro del anillo detectado respecto al centro del buffer de decode, en px) se traduce a las mismas unidades angulares. Con altura útil del sensor $h_{\text{sensor}}$ (≈ 7,2 mm en 1/1,72″), distancia focal <strong>f</strong>, distancia de captura <strong>D</strong> y altura del buffer $H_{\text{decode}}$ (≈ 560 px, Tabla 6),</p>
+<p>$$\delta\theta_y \approx \frac{\text{centerDy}}{H_{\text{decode}}} \cdot 2\arctan\frac{h_{\text{sensor}}}{2f}$$</p>
+<p>(equivalentemente, $\delta y \approx D \tan\delta\theta_y$ en el plano del símbolo). Con <strong>f ≈ 5,6 mm</strong>, <strong>D ≈ 30 cm</strong> y el baseline Redmi Note 9 Pro, cada píxel de <em>centerDy</em> es <strong>≈ 0,7 mm</strong> y <strong>≈ 0,12°</strong> en escena. En la sesión confirmatoria de §6.2, los aciertos N15 se concentran cerca de <strong>−14 px</strong> (≈ <strong>−1,7°</strong>, símbolo ligeramente <strong>por encima</strong> del centro óptico); los cinco misses en N15 quedan en <strong>+11…+26 px</strong> (≈ <strong>+1,3°…+3,1°</strong>, símbolo <strong>bajo</strong> el recuadro). La ventana empírica en elevación es del orden de <strong>±2°</strong> —coherente con la capa (2) anterior (óptica periférica)— y <strong>no</strong> con fallo de Reed–Solomon o S2-octal bajo un símbolo bien centrado.</p>
+<p>La métrica <strong>decodeMs</strong> de §6.2–6.3 <strong>no es generalizable</strong> sin una <strong>matriz multipantalla/multidispositivo</strong> (§8.4). El modelo paraxial de §6.0 sigue permitiendo estimar $p_{\text{tri,sensor}}$ en otros dispositivos antes de medir latencia de campo.</p>
+<h3>7.2 Alcance del formato y de la operación</h3>
+<p>Los niveles <strong>N8–N15</strong> están validados en móvil bajo el protocolo de §6.0. La cadena Auto <strong>8 → 10 → 12 → 15</strong> omite los <strong>N impares intermedios</strong> (9, 11, 13) pese a ser encodables (Tabla 2): no es una limitación del códec, sino una decisión de <strong>protocolo de campo</strong> y de <strong>geometría angular</strong>.</p>
+<p><strong>Geometría e incompatibilidad de fase.</strong> El panal tiene seis sectores con $K^2$ triángulos cada uno ($K=N-3$, §4.1). El lector estima N rotando una cuadrícula de muestreo angular con paso $\Delta\theta = 360°/N$ sobre la malla bariocéntrica, mientras las anclas de temporización del formato —anillo visual y sectores 0, 2, 4 (§3.4)— están fijas en fases $0°$, $120°$ y $240°$. Un N es <strong>armónico</strong> cuando $\Delta\theta$ reparte uniformemente esas fases; equivalentemente, $360° \bmod N = 0$. <strong>N11 y N13</strong> violan esa coherencia de fase: el barrido rotacional no alinea de forma única la cuadrícula de estimación con las anclas del símbolo, lo que incrementa la ambigüedad al resolver N —se clasifican como <strong>disonantes</strong> en la heurística de diseño [18], no como fallo del códec. <strong>N9</strong> sí es armónico, pero aporta un escalón de densidad casi iso-capaz a N10 bajo el mismo <strong>tri_mm</strong> (Tabla 2) sin beneficio operativo; incluirlo <strong>fragmentaría</strong> el espacio de candidatos del barrido de N y del <code>ProfileRouter</code> (§5.4–5.5). La progresión <strong>+2</strong> hasta N12 mantiene escalones de capacidad espaciados con sectores simétricos; <strong>N15</strong> cierra la cadena como extremo denso validado (impar pero armónico: $\Delta\theta = 24°$).</p>
+<p>Con <strong>N ≥ 18</strong> y arista de triángulo por debajo de ~5 mm, la lectura deja de ser fiable en las pruebas realizadas.</p>
+<p>El cuello de botella operativo en N alto es <strong>encuadre</strong>, no el códec (fenómeno directamente correlacionado con la aberración óptica periférica anticipada en §7.1): en papel, los misses de la sesión confirmatoria (§6.2) se explican por <em>centerDy</em> positivo al situar N15 bajo el centro del recuadro. El canal <strong>monitor</strong> (ThinkPad L14, $d_{\text{display}} \approx 0{,}157$ mm, §6.3) es secundario y menos estable que el papel por <strong>moiré</strong> —sensible al acoplamiento $f_{\text{display}} \times f_{\text{cam}}$— y reflejos, aunque confirma el perfil <em>pantalla</em> del lector.</p>
+<p>HEX V8 <strong>no aporta confidencialidad</strong> intrínseca: el payload permanece en claro en el símbolo; la corrección de errores protege integridad ante daño físico, no sustituye cifrado ni autenticación de aplicación. Empaquetados alternativos sobre la misma malla (p. ej. agrupación de tres rombos por hexágono) se exploraron fuera del códec canónico y <strong>no</strong> mejoraron capacidad ni alineación a bytes (§3.4).</p>
+<h3>7.3 Comparación, ecosistema y estado del documento</h3>
+<p>La comparación con QR (§6.4, Tablas 4–5) está <strong>acotada</strong> al protocolo declarado —RS-M, tri_mm ≈ 5 mm, un QR de referencia a ~25 mm— y <strong>no</strong> pretende cubrir el ecosistema ISO completo ni todos los niveles de corrección QR.</p>
+<p>HEX <strong>exige lector dedicado</strong> y reglas de impresión explícitas; no compite en universalidad de lectura con cámaras QR integradas. Este manuscrito es un <strong>preprint</strong> sin revisión por pares. La reproducibilidad ampliada —especificación detallada, tablas, telemetría de campo y procedimientos de regresión— se documenta en el informe técnico [18].</p>
+<hr>
+<h2>8. Conclusiones y entregables</h2>
+<h3>8.1 Respuesta a la pregunta de §2</h3>
+<p>La pregunta de §2 admite una respuesta <strong>afirmativa y acotada</strong>. Bajo las condiciones del protocolo (§6.0, Tabla 6) —impresión monocroma controlada, tri_mm ≳ 5 mm como criterio de legibilidad, lector dedicado con perfiles y resolución de N (§5)—, el artefacto <strong>HEX V8</strong> evaluado <strong>transporta más bytes útiles que las referencias QR declaradas a legibilidad comparable</strong>: hasta <strong>137 B</strong> en N15 / ≈85 mm con RS-M (Tabla 2, Figura 8b) frente a ~37 B de un QR de referencia a ~25 mm. La respuesta afirmativa <strong>no</strong> es «HEX sustituye al QR» ni «137 B caben en una etiqueta de 25–58 mm»; es «más bytes útiles cuando la legibilidad de arista se mantiene cerca de 5 mm». No se afirma validez fuera de ese marco (§7).</p>
+<p>La evidencia es <strong>complementaria</strong>, no intercambiable:</p>
+<ol>
+<li><strong>Códec</strong> — regresión sintética <strong>15/15</strong> (§6.1): prueba necesaria del motor lógico ante JPEG, desenfoque, desplazamiento y perspectiva; <strong>no sustituye</strong> impresión ni UI de captura.</li>
+<li><strong>Campo</strong> — <strong>4/4 OK</strong> secuencial N8→N15 en papel con APK 0.4.7 en <strong>Android</strong> (distribución libre de APK; §6.2, Figura 9), en <strong>un</strong> Redmi Note 9 Pro documentado. Los cinco misses de la sesión confirmatoria en N15 llevan <em>centerDy</em> <strong>+11…+26 px</strong> (≈ <strong>+1,3°…+3,1°</strong>, fuera del <em>sweet spot</em> paraxial de §7.1); el acierto correspondiente usa <em>centerDy</em> <strong>−14 px</strong> (≈ <strong>−1,7°</strong>) —patrón de <strong>encuadre periférico</strong>, no de fallo RS. En N alto el cuello operativo es <strong>encuadre/óptica</strong>, no Reed–Solomon.</li>
+<li><strong>Comparación</strong> — criterio operativo <em>tri_mm ≈ 5 mm</em> (§6.4), no densidad nominal en mm² ni empaquetado a igual huella; a igual legibilidad, N15 supera al QR de referencia en payload, <strong>no</strong> en huella mínima impresa.</li>
+</ol>
+<p><strong>Qué no afirmamos</strong> (ya excluido en §2 y detallado en §7): sustituto del QR en ecosistema o norma ISO; un «siguiente QR» evolutivo; confidencialidad intrínseca; lectura universal sin app dedicada; generalización a otros hardware sin nueva medición; un claim de etiqueta «3,7× más denso» a igual tamaño. HEX <strong>cambia huella por payload al escalar $N$</strong>, con lector dedicado y sensibilidad al encuadre en N15 —coherente con el arco de diseño de §3 (el borde binario de §3.2 no alcanzó esa banda de payload; V8 sí, bajo las reglas anteriores).</p>
+<h3>8.2 Contribuciones</h3>
+<p>Lo siguiente resume lo <strong>sustentado</strong> en §3–§6, alineado con el no-alcance de §2 y las limitaciones de §7:</p>
+<ol>
+<li>Especificación convergente <strong>HEX V8</strong> con evolución de diseño documentada (§3).</li>
+<li>Modelo cerrado de capacidad geométrica y tabla empírica N8–N15 con RS-M (§4, Tabla 2).</li>
+<li>Co-diseño de canal: <em>ring interleave</em>, erasures nativos (1,1), header V8 de 8 bytes (Tabla 1) y padding determinista (§3.5).</li>
+<li>Capa visual v1.1 (checkerboard) para impresión monocroma a 300 DPI (§3.6).</li>
+<li>Lector móvil con <code>ProfileRouter</code>, etapas S0–S2 y resolución de $N$ (§5, Tabla 7), evaluado bajo el protocolo declarado con el build 0.4.7 (§5.6, §6.0).</li>
+</ol>
+<h3>8.3 Entregables</h3>
+<p>Evidencia y materiales reproducibles asociados al estudio (no comercialización del formato):</p>
+<table>
+<thead>
+<tr>
+<th>Entregable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Formato HEX V8</strong></td>
+<td>Especificación convergente (§3.7); detalle ampliado en [18]</td>
+</tr>
+<tr>
+<td><strong>Tablas de capacidad</strong></td>
+<td>Tabla 2; hojas PDF RS-M por N</td>
+</tr>
+<tr>
+<td><strong>Hojas de referencia</strong></td>
+<td>Tamaños mm y tri por N; capacidad máxima (Fig. 5)</td>
+</tr>
+<tr>
+<td><strong>Corpus 15/15</strong></td>
+<td>Regresión sintética: shift, perspectiva, JPEG, blur, contraste</td>
+</tr>
+<tr>
+<td><strong>Lector Android 0.4.7</strong></td>
+<td>Baseline de campo para §6</td>
+</tr>
+<tr>
+<td><strong>Informe técnico Satinus [18]</strong></td>
+<td>Especificación, protocolo, arquitectura del lector y registro de campo</td>
+</tr>
+<tr>
+<td><strong>Este preprint</strong></td>
+<td>Síntesis pública del diseño, datos, límites (§7) y materiales (§9)</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 Trabajo futuro</h3>
+<p>Prioridades, ordenadas por impacto evidencial:</p>
+<ol>
+<li><strong>Matriz multidispositivo / multi-ISP</strong> — repetir el protocolo de papel de §6.0 en al menos dos teléfonos <strong>Android</strong> adicionales (formatos de sensor y distorsión gran angular distintos), manteniendo la distribución libre de APK. Reportar ventanas de <em>centerDy</em>, tasa de acierto N15 y distribuciones de <code>decodeMs</code> por dispositivo, de modo que el baseline Redmi Note 9 Pro deje de ser el único ancla de campo.</li>
+<li><strong>Validación multipantalla</strong> — paneles con $d_{\text{display}}$ distinto al ThinkPad L14 de §6.3, separando el acoplamiento de moiré del comportamiento del códec.</li>
+<li><strong>Extensiones de protocolo</strong> — N impares y $N\geq 18$ con tri_mm medido; comparación BER formal frente a QR bajo las mismas reglas de impresión/captura.</li>
+<li><strong>Operaciones</strong> — conjunto público de capturas de campo con telemetría; ayudas de encuadre en N15 (guía o ROI adaptativo); especificación pública 1.0.</li>
+<li><strong>Métricas teóricas e industrialización</strong> — complemento al baseline móvil de §6: modelar y medir lectura y velocidad en hardware moderno y en entornos industriales (cámaras fijas, iluminación y geometría de captura controladas), como línea de investigación colaborativa; el modelo paraxial de §6.0 anticipa márgenes superiores a los del Redmi, pero esas cifras <strong>no</strong> se extrapolan como evidencia en este preprint.</li>
+</ol>
+<p>Más allá de la medición, HEX V8 se posiciona como un <strong>canal especializado</strong> con lector dedicado (§5.1, §7.3), no como sustituto de la cámara del sistema operativo frente al QR. Usos industriales prospectivos —etiquetado denso de piezas, trazabilidad en planta, empaque técnico— aceptan ese compromiso cuando el payload a tri_mm ≈ 5 mm importa más que la huella mínima de marketing; <strong>no</strong> están validados en §6 y motivan la vía de colaboración de §9. Un encoder/decoder en navegador (§9) apoya roundtrips didácticos y exploración de capacidad; no sustituye el baseline Android de campo.</p>
+<hr>
+<h2>9. Disponibilidad de documentación y materiales</h2>
+<p>La documentación técnica ampliada se publica como informe técnico Satinus E.I.R.L. [18]:<br>
+<a href="https://satinus.net/docs/informes/hex-v8-informe-tecnico.html">https://satinus.net/docs/informes/hex-v8-informe-tecnico.html</a>.</p>
+<p><strong>Materiales en línea</strong> (<a href="https://satinus.net/documentacion.html">centro de documentación</a>):</p>
+<ul>
+<li><a href="https://satinus.net/docs/preprints/hex-v8-manuscrito-es.html">Preprint HTML (español)</a></li>
+<li><a href="https://satinus.net/docs/informes/hex-v8-informe-tecnico.html">Informe técnico [18]</a></li>
+<li><a href="https://satinus.net/docs/materiales/hex-size-reference.pdf">Hoja de tamaños (PDF)</a> y <a href="https://satinus.net/docs/materiales/hex-max-capacity.pdf">capacidad máxima RS-M (PDF)</a></li>
+<li><a href="https://satinus.net/docs/materiales/hex-v8-web-tool.html">HEX encoder/decoder (navegador)</a> — herramienta TypeScript de roundtrip (15/15 vs Python en §6.1); solo didáctica, no sustituto del APK 0.4.7</li>
+</ul>
+<p><strong>Lector de campo.</strong> La línea Android usada en §6 se publica vía GitHub (<a href="https://github.com/Satinus/hex-scanner/releases"><code>hex-scanner</code></a>): APK firmado, notas de versión y canal de actualización en la app. No figura en tiendas de aplicaciones durante la fase preprint.</p>
+<p><strong>Reutilización y contacto.</strong> Los entregables de §8.3 y los materiales públicos anteriores son gratuitos para uso didáctico, evaluación del formato y reproducción parcial del protocolo de §6.0. El núcleo algorítmico de referencia y la explotación comercial permanecen en Satinus E.I.R.L. (Ley chilena de PI N° 17.336). Colaboración, licenciamiento y apoyo al desarrollo ulterior del formato/lector están disponibles por acuerdo.</p>
+<p><strong>Contacto:</strong> <a href="mailto:jorgefigueroacifuentes@gmail.com">jorgefigueroacifuentes@gmail.com</a>, <a href="mailto:satinuseirl@gmail.com">satinuseirl@gmail.com</a> (Satinus E.I.R.L., Chile).</p>
+<hr>
+<h2>Referencias</h2>
+<ol>
+<li>ISO/IEC 18004:2015 — QR Code. <a href="https://www.iso.org/standard/62021.html">iso.org/standard/62021</a></li>
+<li>ISO/IEC 16022:2006 — Data Matrix.</li>
+<li>ISO/IEC 24778:2024 — Aztec Code. <a href="https://www.iso.org/standard/82441.html">iso.org/standard/82441</a></li>
+<li>ISO/IEC 15438:2015 — PDF417. <a href="https://www.iso.org/standard/65502.html">iso.org/standard/65502</a></li>
+<li>I. S. Reed and G. Solomon, <em>J. SIAM</em>, 8(2):300–304, 1960. DOI: <a href="https://doi.org/10.1137/0108018">10.1137/0108018</a></li>
+<li>ISO/IEC 15415:2011 — Print quality for 2D symbols.</li>
+<li>DENSO WAVE — QR development history. <a href="https://www.denso-wave.com/en/technology/vol1.html">denso-wave.com</a></li>
+<li>E. Ohbuchi et al., <em>Proc. Cyberworlds</em>, IEEE, 2004. DOI: <a href="https://doi.org/10.1109/CYBER.2004.144">10.1109/CYBER.2004.144</a></li>
+<li>J.-A. Lin and C.-S. Fuh, <em>Math. Probl. Eng.</em>, 2013. DOI: <a href="https://doi.org/10.1155/2013/848276">10.1155/2013/848276</a></li>
+<li>L. F. F. Belussi and N. S. T. Hirata, <em>Proc. SIBGRAPI</em>, IEEE, 2011.</li>
+<li>K. Zuiderveld, <em>Graphics Gems IV</em>, 1994.</li>
+<li>G. Bradski and A. Kaehler, <em>Learning OpenCV</em>, O’Reilly, 2008.</li>
+<li>D. Parikh and G. Jancke, <em>IEEE WACV</em>, 2008.</li>
+<li>O. I. Bulan et al., <em>Color Imaging Conf.</em>, 2011.</li>
+<li>ISO/IEC 16023:2000 — MaxiCode.</li>
+<li>AIM, Inc., <em>DotCode Symbology Specification</em> 4.0, 2019.</li>
+<li>H. Kato et al., <em>IEEE Pervasive Computing</em>, 6(4):76–85, 2007.</li>
+<li>Satinus E.I.R.L., <em>HEX V8 — Especificación técnica, tablas de capacidad y protocolo de evaluación</em>, informe técnico (en línea), 2026. <a href="https://satinus.net/docs/informes/hex-v8-informe-tecnico.html">satinus.net/docs/informes/hex-v8-informe-tecnico.html</a></li>
+<li>Xiaomi Redmi Note 9 Pro — especificaciones de cámara (variante global). <a href="https://www.gsmarena.com/xiaomi_redmi_note_9_pro-10217.php">gsmarena.com/xiaomi_redmi_note_9_pro-10217</a></li>
+<li>Lenovo ThinkPad L14 — especificaciones de panel (14″ WUXGA 1920×1200 IPS). <a href="https://psref.lenovo.com/Product/ThinkPad/ThinkPad_L14">psref.lenovo.com — ThinkPad L14</a></li>
+</ol>
+<hr>
+<h2>Apéndice A — Índice de términos</h2>
+<p>Referencia rápida. Las definiciones completas aparecen en la <strong>primera mención</strong> en el cuerpo.</p>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>§ primera mención</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payload de datos</td>
+<td>§1</td>
+</tr>
+<tr>
+<td>módulo binario / cuadrícula</td>
+<td>§1</td>
+</tr>
+<tr>
+<td>Reed–Solomon</td>
+<td>§1, §3.5</td>
+</tr>
+<tr>
+<td>HEX (nombre)</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>trit</td>
+<td>§3.3</td>
+</tr>
+<tr>
+<td>malla triangular hexagonal</td>
+<td>§3.3</td>
+</tr>
+<tr>
+<td>rombo / S2-octal</td>
+<td>§3.4</td>
+</tr>
+<tr>
+<td>N</td>
+<td>§3.4</td>
+</tr>
+<tr>
+<td>header V8</td>
+<td>§3.5.2</td>
+</tr>
+<tr>
+<td>ring interleave</td>
+<td>§3.5.3</td>
+</tr>
+<tr>
+<td>erasure nativo / (1,1)</td>
+<td>§3.5.1</td>
+</tr>
+<tr>
+<td>padding determinista</td>
+<td>§3.5.5</td>
+</tr>
+<tr>
+<td>spec v1.1 / checkerboard</td>
+<td>§3.6</td>
+</tr>
+<tr>
+<td>zona tranquila / timing QZ (opcional)</td>
+<td>§3.6</td>
+</tr>
+<tr>
+<td>anillo visual / ring ratio</td>
+<td>§5.2</td>
+</tr>
+<tr>
+<td>ProfileRouter / perfil captura</td>
+<td>§5.4</td>
+</tr>
+<tr>
+<td>etapas S0/S1/S2</td>
+<td>§5.4</td>
+</tr>
+<tr>
+<td>sessionNHint / resolución N</td>
+<td>§5.5</td>
+</tr>
+<tr>
+<td>tri_mm / code_mm</td>
+<td>§4.2</td>
+</tr>
+<tr>
+<td>hatch_fail / centerDy</td>
+<td>§6.2</td>
+</tr>
+<tr>
+<td>protocolo de evaluación</td>
+<td>§6.0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Apéndice B — Índice de tablas y figuras</h2>
+<p>Los floats se numeran automáticamente en el PDF; el cuerpo usa referencias cruzadas. Este índice lista títulos por sección narrativa.</p>
+<table>
+<thead>
+<tr>
+<th>Título</th>
+<th>Sección</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout del header V8 (8 bytes)</td>
+<td>§3.5.2</td>
+</tr>
+<tr>
+<td>Capacidad por nivel N (RS-M)</td>
+<td>§4.3</td>
+</tr>
+<tr>
+<td>Corpus sintético N8 (éxito por familia)</td>
+<td>§6.1</td>
+</tr>
+<tr>
+<td>Resultados de campo en papel</td>
+<td>§6.2</td>
+</tr>
+<tr>
+<td>Modelo cualitativo vs simbologías ISO</td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>Payload de referencia (protocolo de campo)</td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>Densidad útil y área (HEX vs QR ref.)</td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>Parámetros del protocolo de evaluación</td>
+<td>§6.0</td>
+</tr>
+<tr>
+<td>Comportamiento lector por perfil y etapa</td>
+<td>§5.4</td>
+</tr>
+<tr>
+<td>Evolución del diseño</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>Alfabeto S2-octal (8 datos + erasure)</td>
+<td>§3.4</td>
+</tr>
+<tr>
+<td>Alfabeto de trits (atlas)</td>
+<td>§3.6</td>
+</tr>
+<tr>
+<td>Detalle checkerboard (trit 1, impreso)</td>
+<td>§3.6</td>
+</tr>
+<tr>
+<td>Flujo bidireccional encode / decode</td>
+<td>§3.7</td>
+</tr>
+<tr>
+<td>Símbolo HEX N=10 anotado</td>
+<td>§3.7</td>
+</tr>
+<tr>
+<td>Hoja de referencia de tamaños</td>
+<td>§4.2</td>
+</tr>
+<tr>
+<td>Payload máximo (RS-M) vs N</td>
+<td>§4.3</td>
+</tr>
+<tr>
+<td>Pipeline lector móvil 0.4.7</td>
+<td>§5.6</td>
+</tr>
+<tr>
+<td>Payload vs tamaño impreso</td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>Payload a tri ≈ 5 mm</td>
+<td>§6.4</td>
+</tr>
+<tr>
+<td>Lecturas de campo papel y monitor (N8–N15)</td>
+<td>§6.3</td>
+</tr>
+</tbody>
+</table>
+    </article>
+    
+        <aside class="doc-sidebar" aria-label="Table of contents">
+          <h2 data-i18n="doc.toc">En esta página</h2>
+          <ul class="doc-toc" id="doc-toc"></ul>
+          <p class="doc-lang-note" data-i18n="doc.langNote.preprint">Disponible en español, inglés y portugués (Brasil).</p>
+          
+      <div class="doc-related">
+        <h2 data-i18n="doc.related">Documentos relacionados</h2>
+        <ul>
+          <li><a href="/docs/preprints/hex-v8-manuscrito-es.html">HEX V8 — Preprint (es)</a></li>
+          <li><a href="/docs/preprints/hex-v8-manuscript-en.html">HEX V8 — Preprint (en)</a></li>
+          <li><a href="/docs/preprints/hex-v8-manuscrito-pt.html">HEX V8 — Preprint (pt)</a></li>
+          <li><a href="/docs/informes/hex-v8-informe-tecnico.html">HEX V8 — Informe técnico</a></li>
+          <li><a href="/docs/materiales/hex-v8-web-tool.html">HEX: Encoder / Decoder</a></li>
+          <li><a href="/docs/materiales/hex-size-reference.pdf">Hoja de tamaños (PDF)</a></li>
+        </ul>
+      </div>
+        </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer.copy">Satinus E.I.R.L. · RUT 78.165.009-9 · Chile</span>
+  <div class="footer-links">
+    <a href="/sobre-nosotros.html" data-i18n="footer.about">Sobre nosotros</a>
+    <a href="/actividad.html" data-i18n="footer.activity">Actividad</a>
+    <a href="/productos.html" data-i18n="footer.products">Productos</a>
+    <a href="/boletin.html" data-i18n="footer.boletin">Boletín</a>
+    <a href="/documentacion.html" data-i18n="footer.docs">Documentación</a>
+    <a href="/privacidad.html" data-i18n="footer.privacy">Privacidad</a>
+    <a href="/aviso-legal.html" data-i18n="footer.legal">Aviso legal</a>
+    <a href="/terminos.html" data-i18n="footer.terms">Términos de uso</a>
+    <a href="mailto:satinuseirl@gmail.com" data-i18n="footer.contact">Contacto</a>
+  </div>
+</footer>
+<script src="/js/terms-content.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/nav.js?v=20260728social"></script>
+<script src="/js/terms-gate.js"></script>
+<script src="/js/doc-page.js"></script>
+</body>
+</html>
