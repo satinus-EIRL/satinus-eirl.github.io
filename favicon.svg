@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Satinus">
+  <!-- New web mark: white 4-point star on black disc with white ring -->
+  <circle cx="64" cy="64" r="62" fill="#000000"/>
+  <circle cx="64" cy="64" r="62" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  <!-- Concave 4-point star (sparkle) -->
+  <path fill="#FFFFFF" d="M64 18
+    C64 42 42 64 18 64
+    C42 64 64 86 64 110
+    C64 86 86 64 110 64
+    C86 64 64 42 64 18 Z"/>
+</svg>
